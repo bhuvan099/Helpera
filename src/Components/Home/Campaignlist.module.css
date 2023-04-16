@@ -1,0 +1,22 @@
+.flexcontainer {
+    position:relative;
+    display: flex;
+    height:10%;
+    width:70%;
+    background-color: #DDD9CD;
+    flex-direction: column;
+    margin:2% 0 0 10%;
+    height: 70%; 
+    overflow: hidden;
+  }
+  .flexcontainer > div {
+    position:relative;
+    height:10%;
+    width: 100%;
+    margin:5% 0 0 10%;
+    padding:2%;
+    text-align: center;
+    line-height: 2.5;
+    font-size: 30px;
+  }
+

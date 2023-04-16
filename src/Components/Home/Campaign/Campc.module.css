@@ -1,0 +1,22 @@
+.c1div{
+    height:28%;
+    width:70%;
+    background-color: #A2A8E4;
+}
+.c1div .c1p1{
+    top:10%;
+    margin:8% 0 0 10%;
+}
+.c1b1{
+    background-color:#DDD9CD;
+
+}
+.c1b2{
+    background-color: #FFC107;
+    
+}
+.c1div2{
+    position:relative;
+    border:none;
+    margin:5% 0 0 85%;
+}
