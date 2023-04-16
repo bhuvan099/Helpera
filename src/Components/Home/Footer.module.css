@@ -1,0 +1,55 @@
+.wr{
+    position: relative;
+    border:none;
+    margin:0 0 0 70%;
+}
+.logdiv{
+    position:relative;
+    background-color: #D9D9D9;
+    height:30%;
+    width:100%;
+}
+.fr{
+    position:relative;
+    float:right;
+}
+.log {
+    position:relative;
+    float:left;
+    position:relative;
+    width: 200px;
+     height: 130px;
+     background: #A2A8E4;
+     border-radius: 70%;
+     margin:10% 0 0 10%;
+}
+.pr{
+    position:relative;
+    text-align:center;
+    border:none;
+    margin:25% 0 0 0;
+}
+ul{
+    list-style-type:none;
+    overflow:hidden;
+}
+li{
+    display:inline-block;
+    margin:0 0 0 1em;
+}
+li a{
+    border:none;
+    margin:0;
+    text-decoration:none;
+    display:block;
+    color:black;
+    text-align:center;
+    padding:0;
+    word-spacing:0%;
+    font-size: 25px;
+}
+.las{
+    border:none;
+    margin:30% 0 0 50%;
+    font-size: 20px; 
+}
