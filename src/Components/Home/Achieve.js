@@ -1,49 +1,64 @@
 import React from "react";
 import classes from "./Achieve.module.css";
-const Achieve=()=>{
-    return <>
-    <div className={classes.fk}>
-        <p className={classes.h}>Achievements</p>
-       <div className={classes.b1}>
-            <div>
+import {AiFillCaretRight} from 'react-icons/ai';
+const Achieve = () => {
+  return (
+      <div className={classes.main}>
+        <h2>Achievements</h2>
+        <div className={classes.item}>
+          <div className={classes.achInfo}>
             <p className={classes.p1}>Register and create your profile</p>
-                <li>Sign ip  with Google/Mobile number or email id</li>
-                <li>Verfiy your mobile number and email address</li>
-                <li>Complete your profile i.e..,present className,income,gender and other required fields</li>
-                <li>Download Buddy4study app to keep of scholarships</li>
-            </div>
-            <div className={classes.oval}> 
-                <p className={classes.p11}>1000+</p>
-                <p className={classes.p112}>Active users</p>
-            </div>
+            <p><AiFillCaretRight/> Sign ip with Google/Mobile number or email id</p>
+            <p><AiFillCaretRight/> Verfiy your mobile number and email address</p>
+            <p>
+            <AiFillCaretRight/> Complete your profile i.e..,present className,income,gender and
+              other required fields
+            </p>
+            <p><AiFillCaretRight/> Download Buddy4study app to keep of scholarships</p>
+          </div>
+          <div className={classes.oval}>
+            <span>1000+</span>
+            <span>Active users</span>
+          </div>
         </div>
-        <div className={classes.b2}>
+        <div className={classes.item}>
+        <div className={classes.oval}>
+            <span>1000+</span>
+            <span>Campaigns</span>
+          </div>
+          <div className={classes.achInfo2}>
             <p className={classes.p1}>Get notified for matching Campaigns</p>
-            <ul>
-                <li>Based on your profile you will receive matching scholarship email/sms/whatsapp/app notification</li>
-                <li>Keep your profile updated to recieve relevant notifications,you can unsubscribe if you don't</li>
-                 <li><p className={classes.ss}>want to receive ntifications anymore</p></li>
-            </ul>
+            <p>
+            <AiFillCaretRight/> Based on your profile you will receive matching scholarship
+              email/sms/whatsapp/app notification
+            </p>
+            <p><AiFillCaretRight/> 
+              Keep your profile updated to recieve relevant notifications,you
+              can unsubscribe if you don't
+            </p>
+            <p><AiFillCaretRight/> want to receive ntifications anymore</p>
+          </div>
+       
         </div>
-        <div className={classes.oval2}> 
-            <p className={classes.p11}>1000+</p>
-            <p className={classes.p112}>Campaigns</p>
-        </div>
-
-        <div className={classes.b3}>
+        <div className={classes.item}>
+          <div className={classes.achInfo}>
             <p className={classes.p1}>Apply for Campaigns</p>
-            <ul>
-                <li>Apply for scholarship with easy to fill form-most of your information will be prefilled</li>
-                <li>Upload high-quality documents with all the fields visible</li>
-                <li>Regularly monitor your email/mobile for Buddy4Study notifications</li>
-                <li>Respond to question in telephonic interviews</li>
-            </ul>
+            <p><AiFillCaretRight/> 
+              Apply for scholarship with easy to fill form-most of your
+              information will be prefilled
+            </p>
+            <p><AiFillCaretRight/> Upload high-quapty documents with all the fields visible</p>
+            <p>
+            <AiFillCaretRight/> Regularly monitor your email/mobile for Buddy4Study notifications
+            </p>
+            <p><AiFillCaretRight/> Respond to question in telephonic interviews</p>
+          </div>
+          <div className={classes.oval}>
+          <span>1000+</span>
+          <span>Campaigns</span>
+          </div>
         </div>
-        <div className={classes.oval3}> 
-            <p className={classes.p11}>1000+</p>
-            <p className={classes.p112}>Campaigns</p>
-        </div>
-    </div>    
-    </>
-}
+      </div>
+  );
+};
 export default Achieve;

@@ -1,22 +1,26 @@
-.flexcontainer {
-    position:relative;
+ .main{
+    background-color: white;
+    width: 80%;
+    margin: 5vh auto;
     display: flex;
-    height:10%;
-    width:70%;
-    background-color: #DDD9CD;
     flex-direction: column;
-    margin:2% 0 0 10%;
-    height: 70%; 
-    overflow: hidden;
+
   }
-  .flexcontainer > div {
-    position:relative;
-    height:10%;
-    width: 100%;
-    margin:5% 0 0 10%;
-    padding:2%;
-    text-align: center;
-    line-height: 2.5;
-    font-size: 30px;
-  }
+ .action{
+  display: flex;
+  justify-content: left;
+ }
+ .action button{
+  cursor: pointer;
+  border:none;
+  padding:0.5%;
+  text-align:center;
+  font-size: 1.2rem;
+  margin-right: 2vh;
+  background-color: white;
+  font-family: "Noto Sans Thai";
+ }
+ .action button:hover{
+  background-color: #A2A8E4;
+ }
 

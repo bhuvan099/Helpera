@@ -1,19 +1,32 @@
 import React from 'react';
 import classes from "./Footer.module.css";
+import tempLogo from '../../Images/tempLogo.png';
 const Footer=()=>{
-    return <>
-        <div className={classes.logdiv}>
-            <div className={classes.wr}>
-            <ul>
-                <li><a href="About Us">About us</a></li>
-                <li><a href="Contact Us">Contact us</a></li>
-            </ul>
-            </div>
-            <div className={classes.log}>
-               <p className={classes.pr}>logo</p> 
-            </div>
-            <p className={classes.las}>All rights reserved @ helpera.in</p>
-        </div>
-    </>
+    return <section className={classes.SummarySection}>
+    <div className={classes.SummaryItems}>
+     <img src={tempLogo} alt="Logo"/>
+    </div>
+    <div className={classes.SummaryItems}></div>
+    <div className={classes.SummaryItems}>
+        <h3 className={classes.hqua}>Contact Us</h3>
+        <p className={classes.para}><a href="google.com">support@helpera.in</a></p>
+    </div>
+    <div className={classes.SummaryItems}>
+        <h3 className={classes.hqua}>Our Handles</h3>
+        <p className={classes.para}><a href="google.com">Instagram</a></p>
+        <p className={classes.para}><a href="google.com">Telegram</a></p>
+        <p className={classes.para}><a href="google.com">Facebook</a></p>
+        <p className={classes.para}><a href="google.com">YouTube</a></p>
+    </div>
+    <div className={classes.SummaryItems}>
+        <h3 className={classes.hqua}>Support</h3>
+        <p className={classes.para}><a href="google.com">Privacy Policy</a></p>
+        <p className={classes.para}><a href="google.com">Refund & Cancellation Policy</a></p>
+        <p className={classes.para}><a href="google.com">Terms and Conditions</a></p>
+    </div>
+    <p className={classes.rights}>All rights reserved @ helpera.in</p>
+</section>
 }
 export default Footer;
+
+    
