@@ -1,0 +1,38 @@
+*{
+    box-sizing:border-box;
+}
+.circ{
+    position:relative;
+    background-color:#CA9494;
+    height:25%;
+    width:25%;
+    text-align:center;
+    border-radius:80%;
+    box-sizing:border-box;
+    padding:5%;
+    font-size:35px;
+    margin-top:15%;
+    margin-left:35%;
+    }
+    
+    .profile{
+    margin-top:2%;
+    margin-left:1%;
+    position:relative;
+    border:1px solid black;
+    background-color:#B8CEF9;
+    height:40%;
+    width:20%;
+    border-radius:25px;
+    }
+    
+    .rag{
+    margin-bottom:-5%;
+    font-size:25px;
+    text-align:center;
+    }
+    
+    .last{
+    font-size:20px;
+    text-align:center;
+    }
