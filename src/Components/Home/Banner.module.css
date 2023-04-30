@@ -5,7 +5,7 @@
             background-repeat: no-repeat;
             background-size: 100%;
         }
-    .d3 button{
+    .d3 a{
         position: absolute;
         top: 50vh;
         left: 45vw;
@@ -13,7 +13,8 @@
         font-size: 1.2rem;
         border-radius: 17px;
         border: none;
+        color: white;
     }
-    .d3 button:hover{
+    .d3 a:hover{
         background-color: rgb(70, 240, 70);
     }
