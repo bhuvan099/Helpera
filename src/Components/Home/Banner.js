@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./Banner.module.css";
+import { Link } from "react-router-dom";
 const Banner=()=>
 {
     return <>
         <div class={classes.d3}>
-            <button>login/signup</button>
+            <Link to='/login'>login/signup</Link>
         </div>
     </>
 }

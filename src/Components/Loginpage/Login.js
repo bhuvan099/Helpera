@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Login.module.css";
 import img from "./img1.png";
 
 const Login = () => {
+  const [email,setEmail]=useState();
+  const [password,setPassword]=useState();
+  const onEmailChange=(event)=>{
+    setEmail(event.target.value);
+  }
+  const onPasswordChange=(event)=>{
+    setPassword(event.target.value);
+  }
+  const loginUser=async(event)=>{
+    event.preventDefault();
+    console.log(event.target);
+    let response=await fetch('http://127.0.0.1:5000/user/signin',{
+        method:'POST',
+        headers:{
+                'Content-Type':'application/json'
+        },
+        body:JSON.stringify({'email':email,'password':password})
+    }) 
+    let data=await response.json()
+
+    if(response.status===200){
+        console.log("successfully logged in")
+    }
+    else{
+        alert('something went wrong')
+    }
+    console.log(data)
+}
   return (
     <>
       <div className={classes.b}>
@@ -13,22 +41,22 @@ const Login = () => {
           <h1 className={classes.ch1}>Login</h1>
           <form className={classes.cf} method="post">
             <div className={classes.txt_field}>
-              <input type="text" required />
+              <input type="text" onChange={onEmailChange} required />
               <span></span>
-              <label>Username</label>
+              <label>Email</label>
             </div>
             <div className={classes.txt_field}>
-              <input type="password" required />
+              <input type="password" onChange={onPasswordChange} required />
               <span></span>
               <label>Password</label>
             </div>
             <div className={classes.pass}>Forgot Password?</div>
             <div className={classes.check}>
               <input type="checkbox" id="rem" name="Remember" value="rem" />
-              <label for="rem"> Remember password</label>
+              <label htmlFor="rem"> Remember password</label>
               <br />
             </div>
-            <input className={classes.in} type="submit" value="Login" />
+            <input className={classes.in} type="submit" value="Login" onClick={loginUser}/>
             <div className={classes.r1}>
               <div className="row1">
                 <div className="col-md-3">
@@ -53,7 +81,7 @@ const Login = () => {
               rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
             />
             <br />
           </form>
