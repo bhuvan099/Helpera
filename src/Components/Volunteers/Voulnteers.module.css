@@ -1,3 +1,6 @@
-.bb{
-    margin-top:3%;
+.main{
+    margin: 10vh 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    height: 80vh;
 }

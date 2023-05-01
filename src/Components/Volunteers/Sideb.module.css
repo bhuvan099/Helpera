@@ -5,10 +5,8 @@
     background-color:#B8CEF9;
     flex-direction:column;
     justify-content:row;
-    height:50%;
-    width:20%;
     border-radius:25px;
-    margin-top:-2%;
+    height: 58vh;
     }
     .item{
     padding:5%;

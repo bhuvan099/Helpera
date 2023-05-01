@@ -42,12 +42,10 @@ const Login = () => {
           <form className={classes.cf} method="post">
             <div className={classes.txt_field}>
               <input type="text" onChange={onEmailChange} required />
-              <span></span>
               <label>Email</label>
             </div>
             <div className={classes.txt_field}>
               <input type="password" onChange={onPasswordChange} required />
-              <span></span>
               <label>Password</label>
             </div>
             <div className={classes.pass}>Forgot Password?</div>

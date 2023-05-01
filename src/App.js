@@ -8,7 +8,7 @@ import ReactVideoPlayer from "./Components/main";
 const router=createBrowserRouter([
   {path:'/',element:<Home/>},
   {path:'/login',element:<Login/>},
-  {path:'/Volunteers',element:<Volunteers/>},
+  {path:'/volunteer',element:<Volunteers/>},
   {path:'/vid',element:<ReactVideoPlayer/>}
 ])
 

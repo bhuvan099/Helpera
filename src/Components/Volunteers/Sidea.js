@@ -3,10 +3,10 @@ import classes from './Sidea.module.css';
 
 const Sidea = ()=>{
     return <>
-<div class={classes.profile}>
-<p class={classes.circ}> R </p>
-<p class={classes.rag}>Raghav Sharma </p>
-<p class={classes.last}>raghavsharma124</p>
+<div className={classes.profile}>
+<p className={classes.circ}> R </p>
+<p className={classes.name}>Raghav Sharma </p>
+<p>raghavsharma124</p>
 </div>
     </>
 }

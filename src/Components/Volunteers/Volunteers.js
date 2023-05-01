@@ -4,10 +4,12 @@ import Sideb from './Sideb';
 import Sidec from './Sidec';
 import classes from './Voulnteers.module.css';
 const Volunteers = () =>{
-    return <>
-    <div><Sidea/></div>
-   <div className={classes.bb}><Sideb/></div>
-   <div> <Sidec/> </div>
-    </>
+    return <div className={classes.main}>
+    <div>
+    <Sidea/>
+    <Sideb/>
+    </div>
+    <Sidec/>
+    </div>
 }
 export default Volunteers;
