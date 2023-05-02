@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import classes from "./Login.module.css";
 import img from "../Images/tempLogo.png";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email,setEmail]=useState();
   const [password,setPassword]=useState();
+  const navigate=useNavigate();
   const onEmailChange=(event)=>{
     setEmail(event.target.value);
   }
@@ -25,6 +27,7 @@ const Login = () => {
 
     if(response.status===200){
         console.log("successfully logged in")
+        navigate('/')
     }
     else{
         alert('something went wrong')

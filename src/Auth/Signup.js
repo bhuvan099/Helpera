@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import classes from "./Signup.module.css";
 import img from "../Images/tempLogo.png";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+
 
 const SignUp = () => {
   const [email,setEmail]=useState();
@@ -14,6 +15,7 @@ const SignUp = () => {
   const [dob,setDob]=useState();
   const [address,setAddress]=useState();
   const [phone,setPhone]=useState();
+  const navigate=useNavigate();
 
   const onEmailChange=(event)=>{
     setEmail(event.target.value);
@@ -107,6 +109,7 @@ const SignUp = () => {
 
     if(response.status===200){
         console.log("successfully registered")
+        navigate('/')
     }
     else{
         alert('something went wrong')
@@ -135,6 +138,9 @@ const SignUp = () => {
             </div>
             <div className={classes.single}>
               <input type='text' onChange={onAddressChange} required placeholder="Enter Address"/>
+            </div>
+            <div className={classes.single}>
+              <input type='file' className={classes.file} />
             </div>
             <div>
               <input type='password' onChange={onPasswordChange} required placeholder="Enter Password"/>
