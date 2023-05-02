@@ -1,0 +1,7 @@
+.main{
+    margin: 10vh 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80vh;
+}
