@@ -1,0 +1,21 @@
+.camps
+{
+background-color:#A2A8E4;
+padding:2%;
+border-radius:12px;
+height: 13vh;
+}
+
+.but{
+    position:relative;
+    left:80%;
+    font-size:15px;
+    top:-2%;
+    border-radius:5px;
+    cursor:pointer;
+    }
+
+.para{
+font-size:20px;
+margin-left:10%;
+}
