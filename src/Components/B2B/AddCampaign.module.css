@@ -30,8 +30,8 @@
   .form div{
     display: flex;
     align-items: center;
-    justify-content: left;
-    width: 60%;
+    justify-content: center;
+    width: 100%;
   }
   .form div input{
     padding: 15px;
@@ -39,10 +39,9 @@
     border: none;
     box-shadow: rgba(185, 173, 173, 0.35) 0px 5px 15px;
     font-size: 1rem;
+    width: 70%;
   }
-  .single input{
-    width: 100%;
-  }
+
   .form button{
     width: 50%;
     height: 50px;

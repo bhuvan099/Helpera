@@ -1,25 +1,18 @@
   .b{
     margin: 0;
     padding: 0;
-    background: white;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: "Poppins", sans-serif;
   }
-  .i{
-    width: 100px;
-      height: 100px;
-      position: absolute;
-      left: 45%;
-  
+  .i img{
+    width: 80px;
+    margin: 20px;
   }
   .c{
     border : 1px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 600px;
     background: white;
     border-radius: 10px;
