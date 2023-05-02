@@ -8,19 +8,13 @@ import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ReactVideoPlayer from "./Components/main";
 
-const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/login", element: <Login /> },
-  { path: "/signup", element: <SignUp /> },
-  { path: "/volunteer", element: <Volunteers /> },
-  { path: "/organizer", element: <Organizer /> },
-  { path: "/vid", element: <ReactVideoPlayer /> },
-]);
+
 const router=createBrowserRouter([
   {path:'/',element:<Home/>},
   {path:'/login',element:<Login/>},
   {path:'/signup',element:<SignUp/>},
   {path:'/volunteer',element:<Volunteers/>},
+  { path: "/organizer", element: <Organizer /> },
   {path:'/addcampaign',element:<AddCampaign/>}
 ])
 
