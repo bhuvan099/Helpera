@@ -1,0 +1,14 @@
+.one{
+    padding:1%;
+    margin:1%;
+    background-color:#B8CEF9;
+    height:20vh;
+    width:18vw;
+    border:1px solid #B8CEF9;
+    border-radius:12px;
+    text-align:center;
+    }
+    .tex{
+    margin-top:25%;
+    font-size:20px;
+    }

@@ -1,0 +1,19 @@
+.two{
+    margin:1%;
+    padding:1%;
+    background-color:#B8CEF9;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    height:20vh;
+    width:40vw;
+    border-radius:12px;
+    }
+    
+    .item{
+    margin-left:10%;
+    padding:1%;
+    font-size:20px;
+    }
+    
