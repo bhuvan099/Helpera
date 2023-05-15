@@ -4,9 +4,9 @@ import classes from "./OCampaigns.module.css";
 const OCampaigns = (props) => {
   return (
     <>
-      <div class={classes.camps}>
-        <p class={classes.para}>{props.text}</p>
-        <button class={classes.but}>Details</button>
+      <div className={classes.camps}>
+        <p className={classes.para}>{props.text}</p>
+        <button className={classes.but}>Details</button>
       </div>
     </>
   );

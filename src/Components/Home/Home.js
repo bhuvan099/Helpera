@@ -4,7 +4,8 @@ import Banner from "./Banner.js";
 import Camplist from "./Campaignlist.js";
 import Fotter from "./Footer.js";
 import Nav from "./Nav.js";
-import classes from './Home.module.css'
+import classes from './Home.module.css';
+
 const Home=()=>{
 
     return <div className={classes.main}> 

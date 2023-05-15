@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 const Banner=()=>
 {
     return <>
-        <div class={classes.d3}>
-            <Link to='/login'>login/signup</Link>
+        <div className={classes.banner}>
+            <p>Connecting Volunteers</p>
+            <p>to Organizations</p>
+            <span>Volunteers don't just do the work, they make it work. Volunteers make each day brighter. Volunteers make the world go round.</span>
+            <button>Learn More..</button>
         </div>
     </>
 }

@@ -1,20 +1,39 @@
-        .d3{
-            width:100vw;
-            height: 60vh;
-            background: url("../../Images/helpera.jpeg");
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
-    .d3 a{
-        position: absolute;
-        top: 50vh;
-        left: 45vw;
-        padding:8px 15px;
-        font-size: 1.2rem;
-        border-radius: 17px;
-        border: none;
-        color: white;
-    }
-    .d3 a:hover{
-        background-color: rgb(70, 240, 70);
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap');
+.banner{
+height: 90vh;
+background: url('../../Images/landing\ page.jpg')center center;
+background-size: 100%;
+background-repeat: no-repeat;
+width: 100vw;
+display: flex;
+flex-direction: column;
+align-items: left;
+justify-content: center;
+}
+.banner p{
+    font-family: 'Poppins', sans-serif;
+font-size: 3.3rem;
+padding: 0 5vw;
+margin: 0;
+}
+.banner span{
+    width: 30%;
+padding: 0 5vw;
+}
+.banner button{
+    font-family: 'Exo 2', sans-serif;
+    width: 14vw;
+    padding: 15px 20px;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    color: white;
+    font-size: 1.3rem;
+    background-color: rgb(149, 149, 250);
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+.banner button:hover{
+    background-color: rgb(98, 98, 253);
+}

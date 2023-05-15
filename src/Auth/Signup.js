@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import classes from "./Signup.module.css";
 import img from "../Images/HELPERA_ROUND_1.png";
 import { Link,useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../redux-store/auth";
 
 
 const SignUp = () => {
+  const dispatch=useDispatch();
   const [email,setEmail]=useState();
   const [errmessage,setError]=useState();
   const [password,setPassword]=useState();
@@ -114,7 +117,8 @@ const SignUp = () => {
     else{
         alert('something went wrong')
     }
-    console.log(data)
+    dispatch(authActions.setUser(data.result));
+    dispatch(authActions.setToken(data.token));
 }
   return (
       <div className={classes.main}>

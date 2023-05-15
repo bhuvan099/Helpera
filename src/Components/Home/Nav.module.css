@@ -1,21 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap');
 .main{
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 10vh;
+    padding: 5px 3vw;
+    margin: 0;
+    max-width: 100vw;
+
 }
-.main p{
- padding: 20px;
+button,a{
+    cursor: pointer;
+    text-decoration: none;
 }
-.main input{
-    height: 4vh;
-    margin: auto;
-    width: 90%;
-    padding: 5px;
-    border-radius: 10px;
-    font-size: 1rem;
+.main img{
+width: 70px;
 }
-.main a{
+
+.action{
+    display: flex;
+    align-items: center;
+}
+
+.username{
     text-align: right;
     align-self: center;
     padding: 30px;
+    font-size: 1.2rem;
+}
+.abt{
+    font-size: 1.3rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+}
+.login{
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    margin: 0 10px;
+    background-color: rgb(149, 149, 250);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+}
+.abt:hover{
+    color: rgb(252, 184, 10);
+}
+.login:hover{
+    background-color: rgb(98, 98, 253);
+
 }

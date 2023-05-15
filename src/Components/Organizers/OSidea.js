@@ -20,7 +20,7 @@ const OSidea = () => {
           </ul>
         </div>
         <div className={classes.add}>
-          <button class={classes.but}>Add Campaign</button>
+          <button className={classes.but}>Add Campaign</button>
         </div>
       </div>
     </>

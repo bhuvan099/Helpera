@@ -1,38 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Login.module.css";
 import img from "../Images/HELPERA_ROUND_1.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUserMain } from "./auth-action";
+import { useSelector } from "react-redux";
+import { getAuthToken } from "./Auth";
+
 
 const Login = () => {
+  const dispatch=useDispatch();
+  const authError=useSelector(state=>state.auth.authError);
   const [email,setEmail]=useState();
   const [password,setPassword]=useState();
+  const [errmessage,setError]=useState();
   const navigate=useNavigate();
   const onEmailChange=(event)=>{
+    if (errmessage==="Invalid Email") {
+      setError(null);
+    }
     setEmail(event.target.value);
   }
   const onPasswordChange=(event)=>{
+    if (errmessage==="Invalid password (should contain atleast 8 characters)") {
+      setError(null);
+    }
     setPassword(event.target.value);
   }
-  const loginUser=async(event)=>{
+  const loginUserHandler=async(event)=>{
     event.preventDefault();
-    console.log(event.target);
-    let response=await fetch('http://127.0.0.1:5000/user/signin',{
-        method:'POST',
-        headers:{
-                'Content-Type':'application/json'
-        },
-        body:JSON.stringify({'email':email,'password':password})
-    }) 
-    let data=await response.json()
-
-    if(response.status===200){
-        console.log("successfully logged in")
-        navigate('/')
+    if (!email.includes("@")) {
+      setError("Invalid Email");
+      return;
     }
-    else{
-        alert('something went wrong')
+    if (password.trim().length<6){
+      setError("Invalid password (should contain atleast 8 characters)");
+      return;
     }
-    console.log(data)
+    await dispatch(loginUserMain(email,password));
+    const token=getAuthToken();
+    if(token){
+      navigate('/')
+    }
+    
 }
   return (
     <>
@@ -57,7 +67,9 @@ const Login = () => {
               <label htmlFor="rem"> Remember password</label>
               <br />
             </div> */}
-            <input className={classes.in} type="submit" value="Login" onClick={loginUser}/>
+            <input className={classes.in} type="submit" value="Login" onClick={loginUserHandler}/>
+          {errmessage && <p className={classes.err}>{errmessage}</p>}
+            Don't have an account? <Link to='/signup'>Register</Link>
             <div className={classes.r1}>
               <div className="row1">
                 <div className="col-md-3">
