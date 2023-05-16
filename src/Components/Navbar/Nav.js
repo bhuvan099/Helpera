@@ -5,11 +5,12 @@ import logo from '../../Images/HELPERA_ROUND_1.png';
 import { useSelector } from "react-redux";
 import {AiOutlineDownCircle} from 'react-icons/ai';
 import {FaUserCircle} from 'react-icons/fa';
+import { getAuthToken } from '../../Auth/Auth';
 
 
 const Nav = () => {
 const user=useSelector(state=>state.auth.user);
-console.log(user)
+const token=getAuthToken();
   return (
     <div className={classes.main}>
       <div>

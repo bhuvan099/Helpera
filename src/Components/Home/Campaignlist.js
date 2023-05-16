@@ -37,9 +37,10 @@ const Campaignlist=()=>{
     const clist=DUMMY_CAMP.map(item=><CampaignComponent key={item.id} name={item.name} org={item.org} contact={item.contact} address={item.address}/>)
     const clistFilt=DUMMY_CAMP_FILT.map(item=><CampaignComponent key={item.id} name={item.name} org={item.org} contact={item.contact} address={item.address}/>)
     return <div className={classes.main}>
+        <h1>Upcoming Campaigns</h1>
      <div className={classes.action}>
-     <button onClick={changeListToAll}>All Campaigns</button>
-    <button onClick={changeListToFilter}>Filtered for you</button>
+     <button onClick={changeListToAll} className={!isFiltered && classes.On}>All Campaigns</button>
+    <button onClick={changeListToFilter} className={isFiltered && classes.On}>Filtered for you</button>
      </div>
     {isFiltered ? clistFilt : clist}
     </div>
