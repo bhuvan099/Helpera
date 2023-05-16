@@ -13,10 +13,11 @@
   }
   .c{
     border : 1px;
-    width: 600px;
+    width: 30vw;
     background: white;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding-bottom: 5vh;
   }
   .ch1{
     text-align: center;

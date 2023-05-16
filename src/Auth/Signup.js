@@ -3,69 +3,97 @@ import classes from "./Signup.module.css";
 import img from "../Images/HELPERA_ROUND_1.png";
 import { Link,useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { authActions } from "../redux-store/auth";
+import { regExName ,regExEmail,regExUsername,regExPhone,regExPassword,signUpUserMain} from "./auth-action";
+import { getAuthToken } from "./Auth";
 
 
 const SignUp = () => {
   const dispatch=useDispatch();
-  const [email,setEmail]=useState();
-  const [errmessage,setError]=useState();
-  const [password,setPassword]=useState();
-  const [username,setUsername]=useState();
-  const [conpassword,setConPassword]=useState();
-  const [fname,setFname]=useState();
-  const [lname,setLname]=useState();
+  const [email,setEmail]=useState("");
+  const [errmessage,setError]=useState("");
+  const [password,setPassword]=useState("");
+  const [username,setUsername]=useState("");
+  const [conpassword,setConPassword]=useState("");
+  const [fname,setFname]=useState("");
+  const [lname,setLname]=useState("");
   const [dob,setDob]=useState();
-  const [address,setAddress]=useState();
-  const [phone,setPhone]=useState();
+  const [address,setAddress]=useState("");
+  const [phone,setPhone]=useState("");
   const navigate=useNavigate();
 
   const onEmailChange=(event)=>{
+    if (errmessage==="Enter valid Email") {
+      setError(null);
+    }
     setEmail(event.target.value);
   }
   const onPasswordChange=(event)=>{
+    if (errmessage==="Invalid password (should contain atleast 8 characters)") {
+      setError(null);
+    }
     setPassword(event.target.value);
   }
   const onUsernameChange=(event)=>{
+    if (errmessage==="Invalid username(should contain at least four characters.)") {
+      setError(null);
+    }
     setUsername(event.target.value);
   }
   const onConPasswordChange=(event)=>{
+    if (errmessage==="Password is not matching to confirm password") {
+      setError(null);
+    }
     setConPassword(event.target.value);
   }
   const onFnameChange=(event)=>{
+    if (errmessage==="Enter valid First name") {
+      setError(null);
+    }
     setFname(event.target.value);
   }
   const onLnameChange=(event)=>{
+    if (errmessage==="Enter valid Last name") {
+      setError(null);
+    }
     setLname(event.target.value);
   }
   const onDobChange=(event)=>{
+    if (errmessage==="Sorry, you are underAge (age is less than 18)") {
+      setError(null);
+    }
     setDob(event.target.value);
   }
   const onAddressChange=(event)=>{
+    if (errmessage==="Address cannot be empty") {
+      setError(null);
+    }
     setAddress(event.target.value);
   }
   const onPhoneChange=(event)=>{
+    if (errmessage==="Invalid Phone number") {
+      setError(null);
+    }
     setPhone(event.target.value);
   }
-  const SignupUser=async(event)=>{
+  const SignupUserHandler=async(event)=>{
     event.preventDefault();
-    if (fname.trim().length<=2) {
+    if (!regExName.test(fname) || fname==="") {
       setError("Enter valid First name");
       return;
     }
-    if (lname.trim().length<=2) {
+    if (!regExName.test(lname) || lname==="") {
       setError("Enter valid Last name");
       return;
     }
-    if (!email.includes("@")) {
-      setError("Invalid Email");
+    if (!regExEmail.test(email) || email==="") {
+      setError("Enter valid Email");
       return;
     }
-    if (username.trim().length<=3) {
+    if (!regExUsername.test(username) || username===""){
       setError("Invalid username(should contain at least four characters.)");
       return;
     }
-    if (phone.trim().length<=9) {
+    if (!regExPhone.test(phone) || phone==="") {
       setError("Invalid Phone number");
       return;
     }
@@ -73,7 +101,7 @@ const SignUp = () => {
     let curYear = today.getFullYear();
     const d = new Date(dob);
     let dobYear = d.getFullYear();
-    if(curYear-dobYear<18){
+    if(!curYear-dobYear>=18){
       setError("Sorry, you are underAge (age is less than 18)");
       return;
     }
@@ -81,7 +109,7 @@ const SignUp = () => {
       setError("Address cannot be empty");
       return;
     }
-    if (password.trim().length<8){
+    if (!regExPassword.test(password) || password===""){
       setError("Invalid password (should contain atleast 8 characters)");
       return;
     }
@@ -100,25 +128,11 @@ const SignUp = () => {
       address:address,
       phoneno:phone,
     }
-    console.log(newUser)
-    let response=await fetch('http://127.0.0.1:5000/user/signup',{
-        method:'POST',
-        headers:{
-                'Content-Type':'application/json'
-        },
-        body:JSON.stringify(newUser)
-    }) 
-    let data=await response.json()
-
-    if(response.status===200){
-        console.log("successfully registered")
-        navigate('/')
-    }
-    else{
-        alert('something went wrong')
-    }
-    dispatch(authActions.setUser(data.result));
-    dispatch(authActions.setToken(data.token));
+   await dispatch(signUpUserMain(newUser));
+   const token=getAuthToken();
+   if(token){
+     navigate('/')
+   }
 }
   return (
       <div className={classes.main}>
@@ -131,7 +145,7 @@ const SignUp = () => {
               <input type='text' onChange={onLnameChange} required placeholder="Last name"/>
             </div>
             <div className={classes.single}>
-              <input type='email' onChange={onEmailChange} required placeholder="Enter Email"/>
+              <input type='text' onChange={onEmailChange} required placeholder="Enter Email"/>
             </div>
             <div className={classes.single}>
               <input type='text' onChange={onUsernameChange} required placeholder="Enter username"/>
@@ -150,7 +164,7 @@ const SignUp = () => {
               <input type='password' onChange={onPasswordChange} required placeholder="Enter Password"/>
               <input type='password' onChange={onConPasswordChange} required placeholder="Confirm Password"/>
             </div>
-            <button type="submit" onClick={SignupUser}>Register</button>
+            <button type="submit" onClick={SignupUserHandler}>Register</button>
           </form>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
           <p>Already have account? <Link to='/login'>Login</Link></p>
