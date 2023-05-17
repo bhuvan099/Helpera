@@ -5,12 +5,12 @@
     display:flex;
     flex-direction:column;
     border-radius:10px;
-    height: 70vh;
-    margin-top: -72vh;
+    height: 80vh;
+    margin-top: -85vh;
     margin-right: 0vw;
     margin-left: 20vw;
 }
 .subcls{
     margin:1%;
     padding:1%;
-}
+} 
