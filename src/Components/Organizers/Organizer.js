@@ -9,8 +9,13 @@ const Organizer = () => {
       <div>
         <Sidea />
       </div>
-      <Sideb />
-      <Sidec />
+      <div className={classes.in}></div>
+      <div>
+        <Sideb />
+      </div>
+      <div>
+        <Sidec />
+      </div>
     </div>
   );
 };
