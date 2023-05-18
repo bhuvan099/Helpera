@@ -61,7 +61,7 @@ const Login = () => {
               <label>Password</label>
               <input type="password" onChange={onPasswordChange} required placeholder="Enter Password"/>
             </div>
-            <div className={classes.pass}>Forgot Password?</div>
+            <Link className={classes.pass} to='changePassword'>Forgot Password?</Link>
             <input className={classes.in} type="submit" value="Login" onClick={loginUserHandler}/>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
             Don't have an account? <Link to='/signup'>Register</Link>
