@@ -60,7 +60,7 @@ const SignUp = () => {
     setSques(event.target.value);
   }
   const onFnameChange=(event)=>{
-    if (errmessage==="Enter valid First name") {
+    if (errmessage==="Enter valid First name" || errmessage==="Enter valid organization name") {
       setError(null);
     }
     setFname(event.target.value);
@@ -92,10 +92,13 @@ const SignUp = () => {
   const SignupUserHandler=async(event)=>{
     event.preventDefault();
     if (!regExName.test(fname) || fname==="") {
+      if (role===16) {
       setError("Enter valid First name");
+      }else{
+      setError("Enter valid organization name");}
       return;
     }
-    if (!regExName.test(lname) || lname==="") {
+    if ((!regExName.test(lname) || lname==="") && role===16 ) {
       setError("Enter valid Last name");
       return;
     }
@@ -115,7 +118,8 @@ const SignUp = () => {
     let curYear = today.getFullYear();
     const d = new Date(dob);
     let dobYear = d.getFullYear();
-    if(!curYear-dobYear>=18){
+    console.log(curYear-dobYear)
+    if(!(curYear-dobYear>=18)){
       setError("Sorry, you are underAge (age is less than 18)");
       return;
     }

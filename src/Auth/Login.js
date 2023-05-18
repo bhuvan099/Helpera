@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { loginUserMain,regExEmail,regExPassword } from "./auth-action";
 import { useSelector } from "react-redux";
 import { getAuthToken } from "./Auth";
+import ForgotPassword from "./ForgotPassword";
 
 
 const Login = () => {
@@ -14,6 +15,7 @@ const Login = () => {
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const [errmessage,setError]=useState();
+  const [forgotPassword,setForgotPassword]=useState(false);
   const navigate=useNavigate();
   const onEmailChange=(event)=>{
     if (errmessage==="Invalid Email") {
@@ -46,7 +48,7 @@ const Login = () => {
 }
   return (
     <>
-      <div className={classes.b}>
+    {!forgotPassword &&  <div className={classes.b}>
         <div className={classes.i}>
           <img src={img} alt="Logo" />
         </div>
@@ -61,13 +63,14 @@ const Login = () => {
               <label>Password</label>
               <input type="password" onChange={onPasswordChange} required placeholder="Enter Password"/>
             </div>
-            <Link className={classes.pass} to='changePassword'>Forgot Password?</Link>
+            <Link className={classes.pass} onClick={()=>{setForgotPassword(true)}}>Forgot Password?</Link>
             <input className={classes.in} type="submit" value="Login" onClick={loginUserHandler}/>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
             Don't have an account? <Link to='/signup'>Register</Link>
           </form>
         </div>
-      </div>
+      </div>}
+      {forgotPassword && <ForgotPassword/>}
     </>
   );
 };
