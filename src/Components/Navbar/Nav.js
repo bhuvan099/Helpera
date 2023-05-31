@@ -11,7 +11,7 @@ import { getAuthToken } from '../../Auth/Auth';
 const Nav = () => {
 const user=useSelector(state=>state.auth.user);
 console.log(user);
-const token=getAuthToken();
+
   return (
     <div className={classes.main}>
       <div>

@@ -135,23 +135,6 @@ const AddCampaign = () => {
       termsNConditionsFileUrl:"",//will be updated soon
       campaignProfileImageUrl:"" //will be updated soon
     }
-    // let response=await fetch('http://127.0.0.1:5000/user/signup',{
-    //     method:'POST',
-    //     headers:{
-    //             'Content-Type':'application/json'
-    //     },
-    //     body:JSON.stringify(newCampaign)
-    // }) 
-    // let data=await response.json()
-
-    // if(response.status===200){
-    //     console.log("successfully registered")
-    //     navigate('/')
-    // }
-    // else{
-    //     alert('something went wrong')
-    // }
-    // console.log(data)
 }
   return (
       <div className={classes.main}>

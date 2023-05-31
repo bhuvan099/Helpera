@@ -1,5 +1,5 @@
 import { authActions } from "../redux-store/auth";
-import { redirect } from "react-router-dom";
+import { getAuthToken } from './Auth';
 
 export const loginUserMain=(email,password)=>{
       return async(dispatch)=>{
@@ -65,6 +65,29 @@ export const signUpUserMain=(newUser)=>{
         }
         try{
             await SignUpUser(newUser);
+           }catch(error){}
+    }
+}
+export const getUserInfoHandler=()=>{
+      return async(dispatch)=>{
+        const getUserInfo=async()=>{
+           const token=getAuthToken();
+           const authToken='Bearer '+token;
+            const response=await fetch(process.env.REACT_APP_HELPERA_USERDETAILS_URL,{
+                method:'GET',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                }
+                });
+            let data=await response.json()
+            if(response.status===200){
+                console.log("Already logged in");
+            dispatch(authActions.setUser(data.user));
+            }
+        }
+        try{
+            await getUserInfo();
            }catch(error){}
     }
 }

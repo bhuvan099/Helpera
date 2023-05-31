@@ -9,6 +9,7 @@ import "./App.css";
 import { LogoutAction, checkAuthLoader } from "./Auth/Auth";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ReactVideoPlayer from "./Components/main";
+import Main from './Components/main';
 
 
 // const router=createBrowserRouter([
@@ -31,6 +32,7 @@ children:[
 ]},
   {path:'/login',element:<Login/>},
   {path:'/signup',element:<SignUp/>},
+  {path:'/main',element:<Main/>},
   {path:'logout',action:LogoutAction}
 
 ])
