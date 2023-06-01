@@ -96,7 +96,7 @@ const AddCampaign = () => {
       setError("Invalid Organization");
       return;
     }
-    if (regExPhone.test(phone)) {
+    if (!regExPhone.test(phone)) {
       setError("Invalid Phone number");
       return;
     }
@@ -125,16 +125,16 @@ const AddCampaign = () => {
     }
 
     const newCampaign={
-      organization:org,
-      email:email,
-      campaignHead:campHead,
-      volunteersNeeded: VolNo,
-      campaignName:name,
-      campaignType:type,
-      startDate:sdate,
-      endDate:edate,
-      address:address,
-      contactInfo:phone,
+      OrgName:org,
+      Email:email,
+      CampHeadName:campHead,
+      VoluntersNeeded: VolNo,
+      CampaignName:name,
+      CampaignType:type,
+      StartDate:sdate,
+      EndDate:edate,
+      Address:address,
+      ContactNo:phone,
       termsNConditionsFileUrl:"",//will be updated soon
       campaignProfileImageUrl:"" //will be updated soon
     }
@@ -176,12 +176,12 @@ const AddCampaign = () => {
             <div >
               End Date:<input type='date' onChange={ onEdateChange} style={{width:"55%"}} required/>
             </div>
-            <div>
+            {/* <div>
               Description File:<input type='file' className={classes.file} style={{width:"55%"}} />
             </div>
             <div>
               Campaign Profile:<input type='file' className={classes.file} style={{width:"55%"}} />
-            </div>
+            </div> */}
             <button type="submit" onClick={insertCamp}>Add Campaign</button>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
           </form>
