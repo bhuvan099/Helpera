@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import { authActions } from "../redux-store/auth";
 import { getAuthToken } from './Auth';
 
@@ -88,6 +89,29 @@ export const getUserInfoHandler=()=>{
         }
         try{
             await getUserInfo();
+           }catch(error){}
+    }
+}
+export const resetPasswordHandler=(newPassword)=>{
+      return async()=>{
+        const resetPassword=async(newPassword)=>{
+            const response=await fetch("http://127.0.0.1:5000/user/forgotPassword",{
+                method:'PATCH',
+                headers:{
+                        'Content-Type':'application/json',
+                },
+                body:JSON.stringify(newPassword)
+                });
+            if(response.status===200){
+                console.log("password reset successful");
+                return redirect('/')
+            }
+            if(response.status===400){
+                alert("something went wrong")
+            }
+        }
+        try{
+            await resetPassword(newPassword);
            }catch(error){}
     }
 }

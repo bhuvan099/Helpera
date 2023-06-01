@@ -3,6 +3,8 @@ import classes from "./AddCampaign.module.css";
 import { Link } from "react-router-dom";
 import img from '../../Images/HELPERA_ROUND_1.png';
 import {regExName,regExEmail,regExPhone} from '../../Auth/auth-action';
+import { addCampaignHandler } from "../../API/api-action";
+import { useDispatch } from "react-redux";
 
 
 const AddCampaign = () => {
@@ -17,6 +19,7 @@ const AddCampaign = () => {
   const [edate, setEdate]=useState();
   const [address,setAddress]=useState("");
   const [phone,setPhone]=useState("");
+  const dispatch=useDispatch();
 
   const onEmailChange=(event)=>{
     if (errmessage==="Invalid Email") {
@@ -135,6 +138,8 @@ const AddCampaign = () => {
       termsNConditionsFileUrl:"",//will be updated soon
       campaignProfileImageUrl:"" //will be updated soon
     }
+    await dispatch(addCampaignHandler(newCampaign));
+
 }
   return (
       <div className={classes.main}>
