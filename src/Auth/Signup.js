@@ -114,6 +114,7 @@ const SignUp = () => {
       setError("Invalid Phone number");
       return;
     }
+  if (role===16) {
     const today = new Date();
     let curYear = today.getFullYear();
     const d = new Date(dob);
@@ -127,6 +128,7 @@ const SignUp = () => {
       setError("Address cannot be empty");
       return;
     }
+  }
     if (!regExPassword.test(password) || password===""){
       setError("Invalid password (should contain atleast 8 characters)");
       return;
@@ -139,6 +141,7 @@ const SignUp = () => {
       setError("Please Answer Security question.");
       return;
     }
+   if(role===16){
     const newUser={
       username:username,
       email:email,
@@ -152,7 +155,22 @@ const SignUp = () => {
       role:role,
       securityQuestion:sques
     }
-   await dispatch(signUpUserMain(newUser));
+    await dispatch(signUpUserMain(newUser));
+   }
+   if (role===8) {
+    const newOrg={
+      username:username,
+      email:email,
+      password:password,
+      confirmPassword:conpassword,
+      organizationName:fname,
+      address:address,
+      phoneno:phone,
+      role:role,
+      securityQuestion:sques
+    }
+    await dispatch(signUpUserMain(newOrg));
+   }
    const token=getAuthToken();
    if(token){
      navigate('/')
@@ -180,7 +198,7 @@ const SignUp = () => {
             </div>
             <div >
               <input type='text' onChange={onPhoneChange} required placeholder="Phone Number"/> 
-              <span>  DOB:<input type='date' onChange={onDobChange} required placeholder="Date of birth"/></span>
+             {role===16 && <span>  DOB:<input type='date' onChange={onDobChange} required placeholder="Date of birth"/></span>}
             </div>
             <div className={classes.single}>
               <input type='text' onChange={onAddressChange} required placeholder="Enter Address"/>

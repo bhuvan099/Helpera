@@ -92,7 +92,7 @@ export const getUserInfoHandler=()=>{
     }
 }
 export const regExEmail = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/;
-export const regExName=/^[A-Za-z]{3,15}$/;
+export const regExName=/^[A-Za-z\s]{3,25}$/;
 export const regExUsername=/^[a-z]{1}[a-z0-9_]{4,20}$/;
 export const regExPhone=/^[5-9]{1}[0-9]{9}$/;
 export const regExPassword=/^[a-zA-Z0-9.!@#$%&*-/]{6,20}$/;
