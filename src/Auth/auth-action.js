@@ -1,4 +1,3 @@
-import { redirect } from "react-router-dom";
 import { authActions } from "../redux-store/auth";
 import { getAuthToken } from './Auth';
 
@@ -16,7 +15,7 @@ export const loginUserMain=(email,password)=>{
             let authError={}
             if(response.status===200){
                 console.log("Logged in successfully");
-                localStorage.setItem("token",data.token)
+                localStorage.setItem("token",data.token);
             }
             else{
                 authError={
@@ -95,7 +94,7 @@ export const getUserInfoHandler=()=>{
 export const resetPasswordHandler=(newPassword)=>{
       return async()=>{
         const resetPassword=async(newPassword)=>{
-            const response=await fetch("http://127.0.0.1:5000/user/forgotPassword",{
+            const response=await fetch(process.env.REACT_APP_HELPERA_FORGOT_PASS_URL,{
                 method:'PATCH',
                 headers:{
                         'Content-Type':'application/json',
@@ -104,7 +103,6 @@ export const resetPasswordHandler=(newPassword)=>{
                 });
             if(response.status===200){
                 console.log("password reset successful");
-                return redirect('/')
             }
             if(response.status===400){
                 alert("something went wrong")

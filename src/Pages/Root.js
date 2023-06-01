@@ -9,7 +9,7 @@ const Root = () => {
   const dispatch=useDispatch();
 useEffect(()=>{
   dispatch(getUserInfoHandler())
-},[]);
+});
   return (
     <>
       <Nav />

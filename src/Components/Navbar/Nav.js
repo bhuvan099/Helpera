@@ -23,7 +23,7 @@ console.log(user);
       <Link href='google.com' className={classes.abt}>Contact Us</Link>
       <Link href='google.com' className={classes.abt}>Help?</Link>
       </div>
-     {!user ? <Link to='/login' className={classes.login}>Login/Signup</Link> :<Link to={`volunteer/${user.username}`} className={classes.username}><FaUserCircle size='2rem'/>{user.username}<AiOutlineDownCircle size='2rem'/></Link>}
+     {!user ? <Link to='/login' className={classes.login}>Login/Signup</Link> :<Link to={`volunteer/${user.username}`} className={classes.username}><FaUserCircle size='1.8rem'/>{user.username}<AiOutlineDownCircle size='1.8rem'/></Link>}
     </div>
   )
 }

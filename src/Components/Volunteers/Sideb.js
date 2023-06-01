@@ -1,7 +1,12 @@
 import React from 'react';
 import classes from './Sideb.module.css';
+import { LogoutAction } from '../../Auth/Auth';
+import { Link } from 'react-router-dom';
 
 const Sideb=()=>{
+    const LogoutHandler=()=>{
+       LogoutAction();
+    }
     return <>
 
 <div className={classes.pers}>
@@ -16,7 +21,7 @@ const Sideb=()=>{
 
 <div className={classes.item}><a href="Feedback.html">Feedback</a></div>
 
-<div className={classes.item}><a href="Logout.html">Logout</a></div>
+<div className={classes.item}><Link onClick={LogoutHandler}>Logout</Link></div>
 
 </div>
 
