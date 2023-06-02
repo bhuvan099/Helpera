@@ -13,6 +13,11 @@
     padding:5%;
     margin:1%;
     }
+    .but1{
+        background-color: transparent;
+        border : none;
+        font-size: 15px;
+    }
     
     /* a{
     font-size:25px;
