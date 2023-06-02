@@ -1,21 +1,25 @@
 import React from "react";
 import classes from "./OSidea.module.css";
+import PropTypes from "prop-types";
 
-const OSidea = () => {
+const OSidea = (props) => {
   return (
     <>
       <div className={classes.profile}>
         <div className={classes.pro}>
-          <p1 className={classes.circ}> S </p1>
-          <p1>sahyadripratishthan</p1>
+          <p1 className={classes.circ}>
+            {" "}
+            {props.user.username[0].toUpperCase()}
+          </p1>
+          <p1 className={classes.pp}>{props.user.username}</p1>
         </div>
         <div className={classes.about}>
-          <p2>Sahyadri Pratishthan</p2>
+          <p2>{props.user.username}</p2>
           <ul>
-            <li>Pune,India,Maharastra</li>
-            <li>073874 94500</li>
-            <li>info.sahyadripratishthan@gmail.com</li>
-            <li>sahyadripratishthanhindustan.com</li>
+            <li>{props.user.address}</li>
+            <li>{props.user.phoneno}</li>
+            <li>{props.user.email}</li>
+            <li>{props.user.email}</li>
             <li>Always open</li>
           </ul>
         </div>
