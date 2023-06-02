@@ -35,7 +35,7 @@
     }
     .card h1{
     font-family: 'Poppins', sans-serif;
-font-size: 2.6rem;
+font-size: 2.2rem;
     }
     .card div{
         display: flex;
@@ -44,7 +44,7 @@ font-size: 2.6rem;
         width: 100%;
     }
     .card button{
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 12px 20px;
         margin: 0 10px;
         background-color: rgb(149, 149, 250);
@@ -64,7 +64,7 @@ font-size: 2.6rem;
     .card div label{
         font-family: 'Kanit', sans-serif;
         font-weight: bold;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         cursor: pointer;
     }
     .card div input{

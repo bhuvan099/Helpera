@@ -41,3 +41,9 @@
 button{
   cursor: pointer;
 }
+input:disabled{
+  cursor: not-allowed;
+}
+button:disabled{
+  cursor: not-allowed;
+}

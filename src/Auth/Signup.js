@@ -10,6 +10,7 @@ import PreReg from "./PreReg";
 
 const SignUp = () => {
   const dispatch=useDispatch();
+  const [message,setMessage]=useState("Register");
   const [email,setEmail]=useState("");
   const [preReg,setPreReg]=useState(true);
   const [errmessage,setError]=useState("");
@@ -91,27 +92,33 @@ const SignUp = () => {
   }
   const SignupUserHandler=async(event)=>{
     event.preventDefault();
+    setMessage("Registering.....")
     if (!regExName.test(fname) || fname==="") {
       if (role===16) {
       setError("Enter valid First name");
       }else{
       setError("Enter valid organization name");}
+      setMessage("Register");
       return;
     }
     if ((!regExName.test(lname) || lname==="") && role===16 ) {
       setError("Enter valid Last name");
+      setMessage("Register");
       return;
     }
     if (!regExEmail.test(email) || email==="") {
       setError("Enter valid Email");
+      setMessage("Register");
       return;
     }
     if (!regExUsername.test(username) || username===""){
       setError("Invalid username(should contain at least four characters.)");
+      setMessage("Register");
       return;
     }
     if (!regExPhone.test(phone) || phone==="") {
       setError("Invalid Phone number");
+      setMessage("Register");
       return;
     }
   if (role===16) {
@@ -122,23 +129,28 @@ const SignUp = () => {
     console.log(curYear-dobYear)
     if(!(curYear-dobYear>=18)){
       setError("Sorry, you are underAge (age is less than 18)");
+      setMessage("Register");
       return;
     }
     if (address.trim().length===0){
       setError("Address cannot be empty");
+      setMessage("Register");
       return;
     }
   }
     if (!regExPassword.test(password) || password===""){
       setError("Invalid password (should contain atleast 8 characters)");
+      setMessage("Register");
       return;
     }
     if(password!==conpassword){
       setError("Password is not matching to confirm password");
+      setMessage("Register");
       return;
     }
     if(sques.trim().length===0){
       setError("Please Answer Security question.");
+      setMessage("Register");
       return;
     }
    if(role===16){
@@ -173,6 +185,7 @@ const SignUp = () => {
    }
    const token=getAuthToken();
    if(token){
+    setMessage("Register");
      navigate('/')
    }
 }
@@ -213,7 +226,7 @@ const SignUp = () => {
             <div className={classes.single}>
               <input type='text' className={classes.ques} onChange={onSquesChange} required placeholder="What is your favourite vacation place?(Security question)" />
             </div>
-            <button type="submit" onClick={SignupUserHandler}>Register</button>
+            <button type="submit" onClick={SignupUserHandler} disabled={message==="Registering....."}>{message}</button>
           </form>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
           <p>Already have account? <Link to='/login'>Login</Link></p>

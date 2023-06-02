@@ -31,8 +31,8 @@ const PreReg = (props) => {
      <div className={classes.card}>
      <h1>Register Yourself as</h1>
       <div>
-       <p><input type='checkbox' name='vol' id='vol' onChange={changeRoleToVol} checked={Role===16} /><label htmlFor='vol'>As a Volunteer</label></p>
-       <p><input type='checkbox' name='org' id='org' onChange={changeRoleToOrg} checked={Role===8}/><label htmlFor='org'>As an Organization</label></p>
+       <p><input type='checkbox' name='vol' id='vol' onChange={changeRoleToVol} checked={Role===16} /><label htmlFor='vol'>A Volunteer</label></p>
+       <p><input type='checkbox' name='org' id='org' onChange={changeRoleToOrg} checked={Role===8}/><label htmlFor='org'>An Organization</label></p>
       </div>
      <button disabled={Role===0} onClick={SubmitRole}>Submit</button>
      </div>
@@ -40,4 +40,4 @@ const PreReg = (props) => {
   )
 }
 
-export default PreReg
+export default PreReg;

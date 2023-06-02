@@ -16,6 +16,7 @@ const Login = () => {
   const [password,setPassword]=useState("");
   const [errmessage,setError]=useState();
   const [forgotPassword,setForgotPassword]=useState(false);
+  const [message,setMessage]=useState("Login")
   const navigate=useNavigate();
   const onEmailChange=(event)=>{
     if (errmessage==="Invalid Email") {
@@ -31,17 +32,21 @@ const Login = () => {
   }
   const loginUserHandler=async(event)=>{
     event.preventDefault();
+    setMessage("Logining in......")
     if ((!regExEmail.test(email) && email!=="")|| email==="") {
       setError("Invalid Email");
+      setMessage("Login")
       return;
     }
     if (!regExPassword.test(password || password==="")){
       setError("Invalid password (should contain atleast 6 characters)");
+      setMessage("Login")
       return;
     }
     await dispatch(loginUserMain(email,password));
     const token=getAuthToken();
     if(token){
+      setMessage("Login")
       navigate('/')
     }
     
@@ -64,7 +69,7 @@ const Login = () => {
               <input type="password" onChange={onPasswordChange} required placeholder="Enter Password"/>
             </div>
             <Link className={classes.pass} onClick={()=>{setForgotPassword(true)}}>Forgot Password?</Link>
-            <input className={classes.in} type="submit" value="Login" onClick={loginUserHandler}/>
+            <input className={classes.in} type="submit" disabled={message==="Logining in......"} value={message} onClick={loginUserHandler}/>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
             Don't have an account? <Link to='/signup'>Register</Link>
           </form>
