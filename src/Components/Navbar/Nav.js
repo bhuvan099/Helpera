@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './Nav.module.css';
 import { Link } from "react-router-dom";
 import logo from '../../Images/HELPERA_ROUND_1.png';
 import { useSelector } from "react-redux";
 import {AiOutlineDownCircle} from 'react-icons/ai';
 import {FaUserCircle} from 'react-icons/fa';
-import { getAuthToken } from '../../Auth/Auth';
 
 
 const Nav = () => {
@@ -15,7 +14,7 @@ console.log(user);
   return (
     <div className={classes.main}>
       <div>
-      <img src={logo} /><Link to='/' className={classes.title}>Helpera.in</Link>
+      <img src={logo} alt='Logo' /><Link to='/' className={classes.title}>Helpera.in</Link>
       </div>
       <div className={classes.action}>
       <Link to='/' className={classes.abt}>Home</Link>

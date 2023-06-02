@@ -3,20 +3,25 @@ import classes from './ForgotPassword.module.css';
 import { useRef } from 'react';
 import { resetPasswordHandler } from './auth-action';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 
 const ForgotPassword = () => {
     const emailRef=useRef();
     const passwordRef=useRef();
     const questionRef=useRef();
+    const [message,setMessage]=useState("Reset");
     const dispatch=useDispatch();
-    const resetPassword=()=>{
+    const resetPassword=async(event)=>{
+     event.preventDefault();
+     setMessage("Reseting....")
      const newPassword={
         email:emailRef.current.value,
         password:passwordRef.current.value,
         securityQuestion:questionRef.current.value
       }
-      dispatch(resetPasswordHandler(newPassword));;
+     await dispatch(resetPasswordHandler(newPassword));
+     setMessage("Reset");
     }
   return (
     <div className={classes.main}>
@@ -27,7 +32,7 @@ const ForgotPassword = () => {
       <input type='text' ref={questionRef} placeholder='Enter answer to your security question'/>
       <input type='password' ref={passwordRef} placeholder='Enter New password'/>
      </div>
-    <button onClick={resetPassword} >Reset</button>
+    <button onClick={resetPassword} disabled={message==="Reseting...."} >{message}</button>
     </div>
    </div>
   )
