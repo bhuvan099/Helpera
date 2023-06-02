@@ -1,13 +1,17 @@
 import React from 'react';
 import classes from './Sidea.module.css';
 
-const Sidea = ()=>{
-    return <>
+const Sidea = (props)=>{
+
+    let Charx=props.data.username[0].toUpperCase();
+return <>
 <div className={classes.profile}>
-<p className={classes.circ}> R </p>
-<p className={classes.name}>Raghav Sharma </p>
-<p>raghavsharma124</p>
+            <p className={classes.circ}> {Charx} </p>
+            <p className={classes.name}>{props.data.username}</p>
+            <p>{props.data.email}</p>
 </div>
     </>
 }
 export default Sidea;
+
+

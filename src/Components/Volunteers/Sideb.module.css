@@ -9,25 +9,13 @@
     height: 58vh;
     }
     .item{
-    padding:5%;
-    margin:1%;
+    padding:6%;
+    margin:5%;
     }
-    
-    /* a{
-    font-size:25px;
-    }
-    a:link{
-    text-decoration:none;
-    color:black;
-    }
-    a:visited{
-    text-decoration:none;
-    color:black;
-    }
-    
-    a:hover{
-    text-decoration:none;
-    color:black;
-    }
-     */
+.but{
+    border:hidden;
+    background-color:#B8CEF9;
+    font-size:1.3em;
+    cursor: pointer;
+}
     
