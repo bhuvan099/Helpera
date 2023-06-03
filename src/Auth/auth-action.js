@@ -1,7 +1,7 @@
 import { authActions } from "../redux-store/auth";
 import { getAuthToken } from './Auth';
 
-export const loginUserMain=(email,password)=>{
+export const loginUserApi=(email,password)=>{
       return async(dispatch)=>{
         const loginUser=async(email,password)=>{
             let response=await fetch(process.env.REACT_APP_HELPERA_LOGIN_URL,{
@@ -35,7 +35,7 @@ export const loginUserMain=(email,password)=>{
   
     }
 }
-export const signUpUserMain=(newUser)=>{
+export const signupUserApi=(newUser)=>{
       return async(dispatch)=>{
         const SignUpUser=async(newUser)=>{
             let response=await fetch(process.env.REACT_APP_HELPERA_SIGNUP_URL,{
@@ -68,7 +68,7 @@ export const signUpUserMain=(newUser)=>{
            }catch(error){}
     }
 }
-export const getUserInfoHandler=()=>{
+export const getUserInfoApi=()=>{
       return async(dispatch)=>{
         const getUserInfo=async()=>{
            const token=getAuthToken();
@@ -91,7 +91,7 @@ export const getUserInfoHandler=()=>{
            }catch(error){}
     }
 }
-export const resetPasswordHandler=(newPassword)=>{
+export const resetPasswordApi=(newPassword)=>{
       return async()=>{
         const resetPassword=async(newPassword)=>{
             const response=await fetch(process.env.REACT_APP_HELPERA_FORGOT_PASS_URL,{

@@ -3,30 +3,6 @@ import CampaignComponent from "./CampaignComponent";
 import classes from "./Campaignlist.module.css";
 import { useSelector } from "react-redux";
 
-const DUMMY_CAMP=[
-    { id:1,
-        name:"Culture Preservation Camp",
-     org:"Sahyadri Pratishthan",
-     address:"Pune, India, Maharashtra",
-    contact:"073874 94500"},
-    { id:2,
-        name:"Culture Preservation Camp",
-     org:"Sahyadri Pratishthan",
-     address:"Pune, India, Maharashtra",
-    contact:"073874 94500"},
-    { id:3,
-        name:"Culture Preservation Camp",
-     org:"Sahyadri Pratishthan",
-     address:"Pune, India, Maharashtra",
-    contact:"073874 94500"},
-]
-const DUMMY_CAMP_FILT=[
-    { id:1,
-        name:"Culture Preservation Camp",
-     org:"Sahyadri Pratishthan",
-     address:"Pune, India, Maharashtra",
-    contact:"073874 94500"},
-]
 const Campaignlist=()=>{
     const [isFiltered,setIsFiltered]=useState(false);
     const ALL_CAMPAINGS=useSelector(state=>state.campaign.allCampaings);
@@ -37,7 +13,7 @@ const Campaignlist=()=>{
     const changeListToAll=()=>{
         setIsFiltered(false);
     }
-    const clist=ALL_CAMPAINGS.map(item=><CampaignComponent key={item._id} name={item.CampaignName} org={item.OrgName} contact={item.ContactNo} address={item.Address}/>)
+    const clist=ALL_CAMPAINGS.map(item=><CampaignComponent key={item._id} id={item._id} name={item.CampaignName} org={item.OrgName} contact={item.ContactNo} address={item.Address}/>)
     // const clistFilt=DUMMY_CAMP_FILT.map(item=><CampaignComponent key={item.id} name={item.name} org={item.org} contact={item.contact} address={item.address}/>)
     return <div className={classes.main}>
         <h1>Upcoming Campaigns</h1>

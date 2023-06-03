@@ -5,6 +5,7 @@ import Volunteers from "./Components/Volunteers/Volunteers";
 import Organizer from "./Components/Organizers/Organizer";
 import AddCampaign from "./Components/B2B/AddCampaign";
 import Campaignlist from "./Components/CampDesc/Campaignlist";
+import Campdesc from "./Components/CampDesc/Campdesc";
 import Root from "./Pages/Root";
 import "./App.css";
 import { LogoutAction, checkAuthLoader } from "./Auth/Auth";
@@ -21,7 +22,8 @@ children:[
   {path:'volunteer/:username',element:<Volunteers/>,loader:checkAuthLoader},
   { path: "organization/:username", element: <Organizer />,loader:checkAuthLoader},
   {path:'addcampaign',element:<AddCampaign/>,loader:checkAuthLoader},
-  {path:'campaigns',element:<Campaignlist/>}
+  {path:'campaigns',element:<Campaignlist/>},
+  {path:'campaigns/:id',element:<Campdesc/>},
 ]},
   {path:'/login',element:<Login/>},
   {path:'/signup',element:<SignUp/>},

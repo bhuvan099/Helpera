@@ -3,10 +3,11 @@ import classes from "./Login.module.css";
 import img from "../Images/HELPERA_ROUND_1.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUserMain,regExEmail,regExPassword } from "./auth-action";
+import { loginUserApi,regExEmail,regExPassword } from "./auth-action";
 import { useSelector } from "react-redux";
 import { getAuthToken } from "./Auth";
 import ForgotPassword from "./ForgotPassword";
+import {AiOutlineHome} from 'react-icons/ai';
 
 
 const Login = () => {
@@ -43,7 +44,7 @@ const Login = () => {
       setMessage("Login")
       return;
     }
-    await dispatch(loginUserMain(email,password));
+    await dispatch(loginUserApi(email,password));
     const token=getAuthToken();
     if(token){
       setMessage("Login")
@@ -53,6 +54,7 @@ const Login = () => {
 }
   return (
     <>
+    <AiOutlineHome size='1.7rem' style={{margin:'10px',position:'absolute',cursor:'pointer'}} onClick={()=>{navigate('/')}} />
     {!forgotPassword &&  <div className={classes.b}>
         <div className={classes.i}>
           <img src={img} alt="Logo" />
