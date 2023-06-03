@@ -3,9 +3,11 @@ import classes from "./Signup.module.css";
 import img from "../Images/HELPERA_ROUND_1.png";
 import { Link,useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { regExName ,regExEmail,regExUsername,regExPhone,regExPassword,signUpUserMain} from "./auth-action";
+import { regExName ,regExEmail,regExUsername,regExPhone,regExPassword,signupUserApi} from "./auth-action";
 import { getAuthToken } from "./Auth";
 import PreReg from "./PreReg";
+import {AiOutlineHome} from 'react-icons/ai';
+
 
 
 const SignUp = () => {
@@ -167,7 +169,7 @@ const SignUp = () => {
       role:role,
       securityQuestion:sques
     }
-    await dispatch(signUpUserMain(newUser));
+    await dispatch(signupUserApi(newUser));
    }
    if (role===8) {
     const newOrg={
@@ -181,7 +183,7 @@ const SignUp = () => {
       role:role,
       securityQuestion:sques
     }
-    await dispatch(signUpUserMain(newOrg));
+    await dispatch(signupUserApi(newOrg));
    }
    const token=getAuthToken();
    if(token){
@@ -190,7 +192,9 @@ const SignUp = () => {
    }
 }
   return (
-     <>{preReg && <PreReg changePage={changePage} />}
+     <>
+       <AiOutlineHome size='1.7rem' style={{margin:'10px',position:'absolute',cursor:'pointer'}} onClick={()=>{navigate('/')}} />
+     {preReg && <PreReg changePage={changePage} />}
      {!preReg && <div className={classes.main}>
           <img src={img} alt="Logo" />
         <div className={classes.c}>

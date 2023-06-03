@@ -4,7 +4,7 @@ import { campaignActions } from "../redux-store/campaign";
 const token=getAuthToken();
 const authToken="Bearer "+token;
 
-export const addCampaignHandler=(newCampaign)=>{
+export const addCampaignApi=(newCampaign)=>{
     return async()=>{
         const addCampaign=async(newCampaign)=>{
             const response=await fetch(process.env.REACT_APP_HELPERA_ADDCAMPAIGN_URL,{
@@ -28,10 +28,10 @@ export const addCampaignHandler=(newCampaign)=>{
            }catch(error){}
     }
 }
-export const findAllCampaignApi=(newCampaign)=>{
+export const findAllCampaignApi=()=>{
     return async(dispatch)=>{
         const findAllCampaigns=async()=>{
-            const response=await fetch("http://127.0.0.1:5000/organisation/findAllCampaign",{
+            const response=await fetch(process.env.REACT_APP_HELPERA_FIND_ALL_CAMPAIGN_URL,{
                 method:'GET',
                 headers:{
                         'Content-Type':'application/json',

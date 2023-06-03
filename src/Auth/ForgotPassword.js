@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ForgotPassword.module.css';
 import { useRef } from 'react';
-import { resetPasswordHandler } from './auth-action';
+import { resetPasswordApi } from './auth-action';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
@@ -20,7 +20,7 @@ const ForgotPassword = () => {
         password:passwordRef.current.value,
         securityQuestion:questionRef.current.value
       }
-     await dispatch(resetPasswordHandler(newPassword));
+     await dispatch(resetPasswordApi(newPassword));
      setMessage("Reset");
     }
   return (

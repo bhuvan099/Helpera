@@ -1,8 +1,10 @@
 import React from "react";
 import classes from "./CampaignComponent.module.css";
-import prof from '../../Images/camp prof.jpeg'
+import prof from '../../Images/camp prof.jpeg';
+import { Link } from "react-router-dom";
 
 const CampaignComponent = (props) => {
+  console.log(props.id)
   return (
     <div className={classes.main}>
       <img src={prof} alt="loading"></img>
@@ -13,7 +15,7 @@ const CampaignComponent = (props) => {
         <p>{props.contact}</p>
       </div>
       <div className={classes.action}>
-          <button className={classes.det}>Details</button>
+          <Link className={classes.det} to={props.id}>Details</Link>
           <button className={classes.join}>Join</button>
       </div>
     </div>
