@@ -9,7 +9,7 @@ import Approved from './VolunteersSubComponents/Approved';
 
 const Sidec = (props) =>{
   
-    const CampArr=[<Personal/>,<ListCamp/>,<Applied/>,<Approved/>,<Feedback/>,<Logout/>];
+    const CampArr=[<Personal personalData={props.data}/>,<ListCamp/>,<Applied/>,<Approved/>,<Feedback/>,<Logout/>];
     return <>
     <div className={classes.maincls}>
       {CampArr[props.onSentInd]}

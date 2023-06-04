@@ -20,7 +20,7 @@ const Volunteers = () =>{
             <Sidea data={user}/>
             <Sideb onCollectInd={getInd}/>
         </div>
-        <Sidec onSentInd={Index}/>
+        <Sidec onSentInd={Index} data={user}/>
     </div>
     </>
 }
