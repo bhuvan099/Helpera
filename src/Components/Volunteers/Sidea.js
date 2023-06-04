@@ -3,7 +3,7 @@ import classes from './Sidea.module.css';
 
 const Sidea = (props)=>{
 
-    let Charx=props.data.username[0].toUpperCase();
+    let Charx=props.data.username.toUpperCase();
 return <>
 <div className={classes.profile}>
             <p className={classes.circ}> {Charx} </p>

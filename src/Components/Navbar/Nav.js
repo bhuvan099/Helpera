@@ -10,6 +10,13 @@ import {FaUserCircle} from 'react-icons/fa';
 const Nav = () => {
 const user=useSelector(state=>state.auth.user);
 console.log(user);
+let profileUrl=""
+if (user) {
+   profileUrl=`volunteer/${user.username}`;
+if(user.role===8){
+  profileUrl=`organization/${user.username}`
+}
+}
 
   return (
     <div className={classes.main}>
@@ -22,7 +29,7 @@ console.log(user);
       <Link href='google.com' className={classes.abt}>Contact Us</Link>
       <Link href='google.com' className={classes.abt}>Help?</Link>
       </div>
-     {!user ? <Link to='/login' className={classes.login}>Login/Signup</Link> :<Link to={`volunteer/${user.username}`} className={classes.username}><FaUserCircle size='1.8rem'/>{user.username}<AiOutlineDownCircle size='1.8rem'/></Link>}
+     {!user ? <Link to='/login' className={classes.login}>Login/Signup</Link> :<Link to={profileUrl} className={classes.username}><FaUserCircle size='1.8rem'/>{user.username}<AiOutlineDownCircle size='1.8rem'/></Link>}
     </div>
   )
 }
