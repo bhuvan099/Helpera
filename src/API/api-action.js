@@ -17,9 +17,9 @@ export const addCampaignApi=(newCampaign)=>{
                 });
             let data=await response.json()
             if (response.status===201) {
-                console.log("Campaign added successfully");
+                alert(data.message);
             }else{
-                alert("Something went wrong!!!")
+                alert(data.message)
             }
         }
         try{
@@ -52,11 +52,12 @@ export const findAllCampaignApi=()=>{
 }
 export const getJoinedCampaignApi=()=>{
     return async(dispatch)=>{
-        const findAllCampaigns=async()=>{
-            const response=await fetch(process.env.REACT_APP_HELPERA_FIND_ALL_CAMPAIGN_URL,{
+        const getJoinedCampaigns=async()=>{
+            const response=await fetch(process.env.REACT_APP_HELPERA_GET_JOINED_CAMPAIGN_URL,{
                 method:'GET',
                 headers:{
                         'Content-Type':'application/json',
+                        'Authorization':authToken,
                 }
                 });
             let data=await response.json()
@@ -64,11 +65,36 @@ export const getJoinedCampaignApi=()=>{
                 console.log("successfully found all campaigns")
                 dispatch(campaignActions.setAllCampaigns(data))
             }else{
-                console.log("Unable to find All Campaings")
+                alert("Unable to find All Campaings")
             }
         }
         try{
-            await findAllCampaigns();
+            await getJoinedCampaigns();
+           }catch(error){}
+    }
+}
+export const joinCampaignApi=(Id)=>{
+    return async()=>{
+        const joinCampaign=async(Id)=>{
+            const response=await fetch(process.env.REACT_APP_HELPERA_JOIN_CAMPAIGN_URL,{
+                method:'POST',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                },
+                body:JSON.stringify({campaignId:Id})
+                });
+            let data=await response.json()
+            console.log(response.status);
+            if (response.status===200) {
+                console.log(data.message)
+                window.alert(data.message);
+            }else if(response.status===403){
+                console.log(data.message)
+            }
+        }
+        try{
+            await joinCampaign(Id);
            }catch(error){}
     }
 }
