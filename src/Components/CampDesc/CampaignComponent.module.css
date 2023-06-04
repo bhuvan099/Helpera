@@ -1,12 +1,21 @@
 .main{
-    background-color: #A2A8E4;
+    /* background-color: #A2A8E4; */
     display: flex;
     margin: 2vh 0;
+    justify-content: space-evenly;
   font-family: 'Bree Serif', serif
 }
 .inf{
-    width: 60%;
-    padding: 0 3vw;
+    width: 50%;
+    background-color: #A2A8E4;
+    padding: 2vh 2vw;
+    border-radius: 100px 0px 0px 100px;
+}
+.sp{
+    width: 5%;
+}
+img{
+    border-radius: 100%;
 }
 .det{
     cursor: pointer;
@@ -31,5 +40,13 @@
 
 .action{
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #A2A8E4;
+}
+.ac2{
+    width : 10%;
+    border-radius: 0px 100px 100px 0px;
+    background-color: #A2A8E4;
 }
