@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./OSidea.module.css";
-import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 const OSidea = (props) => {
   return (
     <>
@@ -21,7 +20,7 @@ const OSidea = (props) => {
           </ul>
         </div>
         <div className={classes.add}>
-          <button className={classes.but}>Add Campaign</button>
+          <Link className={classes.but} to='/addcampaign'>Add Campaign</Link>
         </div>
       </div>
     </>
