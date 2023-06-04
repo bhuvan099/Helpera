@@ -71,7 +71,7 @@ const OSideb = (props) => {
 
         <div className={classes.item}>
           <button className={classes.but1} href="Logout.html">
-            Rating: 4.7
+            Rating: {props.user.rating}
           </button>
         </div>
       </div>

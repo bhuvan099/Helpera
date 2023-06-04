@@ -9,18 +9,15 @@ const OSidea = (props) => {
         <div className={classes.pro}>
           <p1 className={classes.circ}>
             {" "}
-            {props.user.username.toUpperCase()}
+            {props.user.username[0].toUpperCase()}
           </p1>
-          <p1 className={classes.pp}>{props.user.username}</p1>
         </div>
         <div className={classes.about}>
           <p2>{props.user.username}</p2>
           <ul>
             <li>{props.user.address}</li>
-            <li>{props.user.phoneno}</li>
+            <li>{props.user.phoneNo}</li>
             <li>{props.user.email}</li>
-            <li>{props.user.email}</li>
-            <li>Always open</li>
           </ul>
         </div>
         <div className={classes.add}>

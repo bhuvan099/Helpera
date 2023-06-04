@@ -2,21 +2,15 @@ import React from "react";
 import Campaigns from "./OCampaigns";
 import classes from "./OSidec.module.css";
 
-const OSidec = () => {
+const OSidec = (props) => {
+  const campaigns = props.camp;
   return (
     <>
       <div className={classes.maincls}>
         <div className={classes.subcls}>
-          <Campaigns text="Campaign-1" />
-        </div>
-        <div className={classes.subcls}>
-          <Campaigns text="Campaign-2" />
-        </div>
-        <div className={classes.subcls}>
-          <Campaigns text="Campaign-3" />
-        </div>
-        <div className={classes.subcls}>
-          <Campaigns text="Campaign-4" />
+          {campaigns.map((item) => (
+            <Campaigns text={item} />
+          ))}
         </div>
       </div>
     </>
