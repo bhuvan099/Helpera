@@ -6,22 +6,11 @@ import Odefault from "./Odefault";
 import classes from "./Organizer.module.css";
 import Org_info from "./Org_info";
 import Volenteer_info from "./Volenteer_info";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
 const Organizer = () => {
-  const ORG_TEST = {
-    username: "Abishek Chowdary",
-    email: "org@gmail.com",
-    password: "password",
-    confirmPassword: "conpassword",
-    firstName: "fname",
-    lastName: "lname",
-    dob: "dob",
-    address: "street-401,MG rod,oposite KG",
-    phoneno: "789456123",
-    role: 8,
-    securityQuestion: "ntg",
-  };
+  const user = useSelector((state) => state.auth.user);
+  console.log(user);
   const [toggle, istoggle] = useState({
     t1: false,
     t2: false,
@@ -34,15 +23,15 @@ const Organizer = () => {
   return (
     <div className={classes.main}>
       <div>
-        <Sidea user={ORG_TEST} />
+        <Sidea user={user} />
       </div>
       <div className={classes.in}></div>
       <div>
-        <Sideb settoggle={istoggle} />
+        <Sideb settoggle={istoggle} user={user} />
       </div>
       <div>
-        {toggle.t1 ? <Org_info /> : <Odefault />}
-        {toggle.t2 ? <Sidec /> : <Odefault />}
+        {toggle.t1 ? <Org_info user={user} /> : <Odefault />}
+        {toggle.t2 ? <Sidec camp={user.campaigns} /> : <Odefault />}
         {toggle.t3 ? <Volenteer_info /> : <Odefault />}
         {/* {toggle.t2 && <Odefault />} */}
         {/* <Sidec /> */}
