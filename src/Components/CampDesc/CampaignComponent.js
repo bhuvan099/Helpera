@@ -3,12 +3,15 @@ import classes from "./CampaignComponent.module.css";
 import prof from "../../Images/camp prof.jpeg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { joinCampaignApi } from "../../API/api-action";
-import { getAuthToken } from "../../Auth/Auth";
+import { joinCampaignApi,getCampaignByCampaignIdApi } from "../../API/api-action";
+
 
 const CampaignComponent = (props) => {
 const dispatch=useDispatch();
 const user=useSelector(state=>state.auth.user);
+const showCampDetails=async()=>{
+  await dispatch(getCampaignByCampaignIdApi(props.id));
+}
   const joinCampaignHandler=async(event)=>{
     event.preventDefault();
     if(!user){
@@ -48,7 +51,7 @@ const user=useSelector(state=>state.auth.user);
         </p>
       </div>
       <div className={classes.action}>
-          <Link className={classes.det} to={props.id}>Details</Link>
+          <Link className={classes.det} to={props.id} onClick={showCampDetails}>Details</Link>
           <button className={classes.join} onClick={joinCampaignHandler}>Join</button>
       </div>
       <div className={classes.ac2}></div>
