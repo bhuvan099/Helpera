@@ -101,6 +101,7 @@ export const joinCampaignApi=(Id)=>{
 export const getCampaignByCreatorIDApi=()=>{
     return async(dispatch)=>{
         const getCampaignByCreatorID=async()=>{
+    console.log("inside")
             const response=await fetch("http://127.0.0.1:5000/organisation/getCampaignByCreatorID",{
                 method:'POST',
                 headers:{

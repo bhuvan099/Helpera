@@ -12,7 +12,7 @@ const OSidea = (props) => {
           </p1>
         </div>
         <div className={classes.about}>
-          <p2>{props.user.username}</p2>
+          <p2>{props.user.name.toUpperCase()}</p2>
           <ul>
             <li>{props.user.address}</li>
             <li>{props.user.phoneNo}</li>

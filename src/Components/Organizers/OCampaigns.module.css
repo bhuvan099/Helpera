@@ -1,21 +1,36 @@
 .camps
 {
 background-color:#A2A8E4;
-padding:2%;
+padding:2vw;
 border-radius:12px;
-height: 12vh;
+margin: 1vh 0;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
 }
-
-.but{
-    position:relative;
-    left:80%;
-    font-size:15px;
-    top:-2%;
-    border-radius:5px;
-    cursor:pointer;
-    }
-
-.para{
-font-size:20px;
-margin-left:10%;
+.p{
+    margin: 0;
+    font-size: 0.9rem;
+}
+.det{
+    font-size: 1.1rem;
+    padding:5px 10px;
+    font-family: 'Exo 2', sans-serif;
+    background-color: rgb(255, 44, 68);
+    color: white;
+    margin: 10px;
+    border-radius: 15px;
+}
+.name{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.org{
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
 }

@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 const OSideb = (props) => {
   const dispatch=useDispatch();
   const getCampaignByCreatorIDHandler=async()=>{
-       set2();
        await dispatch(getCampaignByCreatorIDApi());
+       set2();
   }
   function set1() {
     props.settoggle(() => ({
