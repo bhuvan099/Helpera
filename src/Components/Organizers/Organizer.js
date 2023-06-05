@@ -12,7 +12,7 @@ const Organizer = () => {
   const user = useSelector((state) => state.auth.user);
   console.log(user);
   const [toggle, istoggle] = useState({
-    t1: false,
+    t1: true,
     t2: false,
     t3: false,
     t4: false,
