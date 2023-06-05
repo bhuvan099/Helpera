@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 const Campaignlist=()=>{
     const [isFiltered,setIsFiltered]=useState(false);
     const ALL_CAMPAINGS=useSelector(state=>state.campaign.allCampaings);
-    console.log(ALL_CAMPAINGS[2]);
     const changeListToFilter=()=>{
         setIsFiltered(true);
     }
