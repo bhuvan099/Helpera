@@ -98,6 +98,29 @@ export const joinCampaignApi=(Id)=>{
            }catch(error){}
     }
 }
+export const getCampaignByCreatorIDApi=()=>{
+    return async(dispatch)=>{
+        const getCampaignByCreatorID=async()=>{
+            const response=await fetch("http://127.0.0.1:5000/organisation/getCampaignByCreatorID",{
+                method:'POST',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                }
+                    });
+            let data=await response.json()
+            console.log(data);
+            if (response.status===200) {
+                dispatch(campaignActions.setCampaignsCreated(data))
+            }else if(response.status===404){
+                alert(data.message)
+            }
+        }
+        try{
+            await getCampaignByCreatorID();
+           }catch(error){}
+    }
+}
 export const getCampaignByCampaignIdApi=(Id)=>{
     return async(dispatch)=>{
         const getCampaignByCampaignId=async(Id)=>{

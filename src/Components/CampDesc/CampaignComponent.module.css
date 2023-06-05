@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap');
 .main{
     /* background-color: #A2A8E4; */
     display: flex;
@@ -8,7 +9,7 @@
 .inf{
     width: 50%;
     background-color: #A2A8E4;
-    padding: 2vh 2vw;
+    padding: 2vh 4vw;
     border-radius: 100px 0px 0px 100px;
 }
 .sp{
@@ -22,19 +23,25 @@ img{
     border:none;
     padding:0.5%;
     text-align:center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding:5px 10px;
+    font-family: 'Exo 2', sans-serif;
+    background-color: rgb(255, 44, 68);
+    color: white;
     margin: 10px;
+    border-radius: 15px;
 }
 .join{
     cursor: pointer;
     border:none;
-    padding:0.5%;
     text-align:center;
     font-size: 1.2rem;
     background-color: rgb(253, 204, 8);
     padding:5px 10px;
     margin: 10px; 
+    font-family: 'Exo 2', sans-serif;
+    border-radius: 15px;
+    padding:5px 20px;
 
 }
 

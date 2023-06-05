@@ -2,7 +2,7 @@
     .profile{
     background-color:#B8CEF9;
     border-radius:25px;
-    width: 70vw;
+    width: 75vw;
     height: 25vh;
     display: flex;
     flex-direction: row;
@@ -47,11 +47,14 @@
         stroke: black;
     }
     .but{
-        position:relative;
-        font-size:15px;
-        margin-top: 18vh;
-        /*border-radius:5px;*/
-        cursor:pointer;
-        background-color: yellow;
-        padding:2%;
+            cursor: pointer;
+    border:none;
+    text-align:center;
+    font-size: 1.2rem;
+    background-color: rgb(253, 204, 8);
+    padding:5px 10px;
+    margin: 10px; 
+    font-family: 'Exo 2', sans-serif;
+    border-radius: 15px;
+    padding:5px 20px;
         }

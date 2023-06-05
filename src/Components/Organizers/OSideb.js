@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./OSideb.module.css";
-import PropTypes from "prop-types";
-
+import { getCampaignByCreatorIDApi } from "../../API/api-action";
+import { useDispatch } from "react-redux";
 const OSideb = (props) => {
+  const dispatch=useDispatch();
+  const getCampaignByCreatorIDHandler=async()=>{
+       set2();
+       await dispatch(getCampaignByCreatorIDApi());
+  }
   function set1() {
     props.settoggle(() => ({
       t1: true,
@@ -24,7 +29,6 @@ const OSideb = (props) => {
         <div className={classes.item}>
           <button
             className={classes.but1}
-            href="Personal_Info.html"
             onClick={() => set1()}
           >
             Organization Info.
@@ -34,8 +38,7 @@ const OSideb = (props) => {
         <div className={classes.item}>
           <button
             className={classes.but1}
-            href="Applied.html"
-            onClick={() => set2()}
+            onClick={getCampaignByCreatorIDHandler}
           >
             Campaigns
           </button>
@@ -44,7 +47,6 @@ const OSideb = (props) => {
         <div className={classes.item}>
           <button
             className={classes.but1}
-            href="Applied.html"
             onClick={() => set3()}
           >
             Volunteers
@@ -52,7 +54,7 @@ const OSideb = (props) => {
         </div>
 
         <div className={classes.item}>
-          <button className={classes.but1} href="Approved.html">
+          <button className={classes.but1}>
             Announcements
           </button>
         </div>
