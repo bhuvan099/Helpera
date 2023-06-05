@@ -11,9 +11,9 @@ import { useSelector } from "react-redux";
     <div className="main">
             <div className={classes.step1}>
             <Sideaa/>
-            <Sidebb/>
+            <Sidebb data={campaign}/>
             </div>
-           <div className={classes.step1}><Sidecc/></div>
+           <div className={classes.step1}><Sidecc data={campaign}/></div>
    </div>
     </>
  }

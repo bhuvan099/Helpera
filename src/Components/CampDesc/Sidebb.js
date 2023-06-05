@@ -1,15 +1,15 @@
 import React from 'react';
 import classes from './Sidebb.module.css';
 
-const Sidebb =()=>
+const Sidebb =(props)=>
 {
     return <>
         <div className={classes.two}>
-            <div class={classes.item}>Name of the Campaign</div>
+            <div class={classes.item}><b>CampaignName:</b>  {props.data.CampaignName}</div>
 
-            <div class={classes.item}>Name of organization</div>
+            <div class={classes.item}><b>OrgName:</b>  {props.data.OrgName}</div>
 
-            <div class={classes.item}>Contact Details</div>
+            <div class={classes.item}><b>Contacts:</b>  {props.data.ContactNo},{props.data.Email}</div>
         </div>
 
    </>
