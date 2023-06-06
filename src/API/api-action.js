@@ -60,7 +60,7 @@ export const findAllCampaignApi=()=>{
 }
 
 export const joinCampaignApi=(Id)=>{
-    return async()=>{
+    return async(dispatch)=>{
         const joinCampaign=async(Id)=>{
             const token=getAuthToken();
             const authToken="Bearer "+token;
@@ -73,12 +73,24 @@ export const joinCampaignApi=(Id)=>{
                 body:JSON.stringify({campaignId:Id})
                 });
             let data=await response.json()
-            console.log(response.status);
             if (response.status===200) {
-                console.log(data.message)
-                window.alert(data.message);
+                const modal={
+                    type:"JOINED",
+                    title:"Successful...!!",
+                    message:"Successfully joined for the camaign",
+                    accept:"Return to Home",
+                    reject:"OK,fine"
+                }
+                dispatch(authActions.setModal(modal)); 
             }else if(response.status===403){
-                console.log(data.message)
+                const modal={
+                    type:"JOIN_ERROR",
+                    title:"UNABLE TO JOIN",
+                    message:data.message,
+                    accept:"Return to Home",
+                    reject:"OK,fine"
+                }
+                dispatch(authActions.setModal(modal)); 
             }
         }
         try{

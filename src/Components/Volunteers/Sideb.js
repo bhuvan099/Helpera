@@ -54,11 +54,10 @@ const closeModal=()=>{
 
             <div className={classes.item}><button className={classes.but} onClick={handleFeedback}>Feedback</button></div>
             <div className={classes.item}><button className={classes.but}>Rating: {props.user.rating}</button></div>
-
             <div className={classes.item}>
             <button className={classes.but} onClick={logoutHandler}>Logout</button>
             {modal && modal.type==="LOGOUT" && <Form action='/logout' method="post">
-               <Modal title={modal.title} onCloseModal={closeModal} message={modal.message} accept={modal.accept} reject={modal.reject} />
+               <Modal modal={modal} onCloseModal={closeModal} />
                 </Form>}
             </div>
 
