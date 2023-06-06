@@ -1,4 +1,5 @@
 import { redirect } from "react-router-dom";
+import { authActions } from "../redux-store/auth";
 
 
 export function getAuthToken(){
@@ -22,4 +23,14 @@ export function checkAuthLoader(){
 export function LogoutAction(){
   localStorage.removeItem('token');
   return redirect('/');
+}
+export const clearAuthStateHandler=()=>{
+  return async(dispatch)=>{
+      const clearAuthState=()=>{
+         dispatch(authActions.clearAuthStates());
+      }
+      try{
+          await clearAuthState();
+         }catch(error){}
+  }
 }

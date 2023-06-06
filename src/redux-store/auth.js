@@ -12,6 +12,11 @@ const authSlice=createSlice({
         },
         setAuthError(state,action){
             state.authError=action.payload;
+        },
+        clearAuthStates(state){
+            state.user=null;
+            state.authError=null;
+            state.token=null;
         }
     }
 })
