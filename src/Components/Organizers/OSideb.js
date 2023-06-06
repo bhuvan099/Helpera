@@ -1,7 +1,25 @@
 import React from "react";
 import classes from "./OSideb.module.css";
 import { Form } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../redux-store/auth";
+import Modal from "../UI/Model";
 const OSideb = (props) => {
+  const modal=useSelector(state=>state.auth.modal);
+    const dispatch=useDispatch();
+  const logoutHandler=()=>{
+    const modal={
+        type:"LOGOUT",
+        title:"Confirmation..",
+        message:"Are you sure ?",
+        accept:"Logout",
+        reject:"No, wait"
+    }
+    dispatch(authActions.setModal(modal));
+}
+const closeModal=()=>{
+    dispatch(authActions.setModal(null));
+}
 
   function set1() {
     props.settoggle(() => ({
@@ -61,10 +79,11 @@ const OSideb = (props) => {
         </div>
 
         <div className={classes.item}>
-         <Form action='/logout' method="post"><button className={classes.but1}>
-            Logout
-          </button></Form>
-        </div>
+            <button className={classes.but1} onClick={logoutHandler}>Logout</button>
+            {modal && modal.type==="LOGOUT" && <Form action='/logout' method="post">
+               <Modal title={modal.title} onCloseModal={closeModal} message={modal.message} accept={modal.accept} reject={modal.reject} />
+                </Form>}
+            </div>
 
         <div className={classes.item}>
           <button className={classes.but1}>

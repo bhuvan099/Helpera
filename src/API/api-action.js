@@ -1,9 +1,10 @@
 import { getAuthToken } from "../Auth/Auth";
+import { authActions } from "../redux-store/auth";
 import { campaignActions } from "../redux-store/campaign";
 
 
 export const addCampaignApi=(newCampaign)=>{
-    return async()=>{
+    return async(dispatch)=>{
         const addCampaign=async(newCampaign)=>{
             const token=getAuthToken();
             const authToken="Bearer "+token;
@@ -17,7 +18,14 @@ export const addCampaignApi=(newCampaign)=>{
                 });
             let data=await response.json()
             if (response.status===201) {
-                alert(data.message);
+                const modal={
+                    type:"ADD_CAMPAIGN",
+                    title:"Successful!!",
+                    message:"Your campaign has been added successfully.",
+                    accept:"Add New",
+                    reject:"Return Home"
+                }
+                dispatch(authActions.setModal(modal));
             }else{
                 alert(data.message)
             }
