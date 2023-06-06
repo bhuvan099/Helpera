@@ -1,12 +1,12 @@
 import { getAuthToken } from "../Auth/Auth";
 import { campaignActions } from "../redux-store/campaign";
 
-const token=getAuthToken();
-const authToken="Bearer "+token;
 
 export const addCampaignApi=(newCampaign)=>{
     return async()=>{
         const addCampaign=async(newCampaign)=>{
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
             const response=await fetch(process.env.REACT_APP_HELPERA_ADDCAMPAIGN_URL,{
                 method:'POST',
                 headers:{
@@ -50,32 +50,12 @@ export const findAllCampaignApi=()=>{
            }catch(error){}
     }
 }
-export const getJoinedCampaignApi=()=>{
-    return async(dispatch)=>{
-        const getJoinedCampaigns=async()=>{
-            const response=await fetch(process.env.REACT_APP_HELPERA_GET_JOINED_CAMPAIGN_URL,{
-                method:'GET',
-                headers:{
-                        'Content-Type':'application/json',
-                        'Authorization':authToken,
-                }
-                });
-            let data=await response.json()
-            if (response.status===201) {
-                console.log("successfully found all campaigns")
-                dispatch(campaignActions.setAllCampaigns(data))
-            }else{
-                alert("Unable to find All Campaings")
-            }
-        }
-        try{
-            await getJoinedCampaigns();
-           }catch(error){}
-    }
-}
+
 export const joinCampaignApi=(Id)=>{
     return async()=>{
         const joinCampaign=async(Id)=>{
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
             const response=await fetch(process.env.REACT_APP_HELPERA_JOIN_CAMPAIGN_URL,{
                 method:'POST',
                 headers:{
@@ -101,7 +81,8 @@ export const joinCampaignApi=(Id)=>{
 export const getCampaignByCreatorIDApi=()=>{
     return async(dispatch)=>{
         const getCampaignByCreatorID=async()=>{
-    console.log("inside")
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
             const response=await fetch("http://127.0.0.1:5000/organisation/getCampaignByCreatorID",{
                 method:'POST',
                 headers:{
@@ -110,7 +91,6 @@ export const getCampaignByCreatorIDApi=()=>{
                 }
                     });
             let data=await response.json()
-            console.log(data);
             if (response.status===200) {
                 dispatch(campaignActions.setCampaignsCreated(data))
             }else if(response.status===404){
@@ -143,6 +123,30 @@ export const getCampaignByCampaignIdApi=(Id)=>{
         }
         try{
             await getCampaignByCampaignId(Id);
+           }catch(error){}
+    }
+}
+export const getJoinedCampaigsApi=()=>{
+    return async(dispatch)=>{
+        const getJoinedCampaigs=async()=>{
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
+            const response=await fetch(process.env.REACT_APP_HELPERA_GET_JOINED_CAMPAIGN_URL,{
+                method:'GET',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                }
+                    });
+            let data=await response.json();
+            if (response.status===200) {
+                dispatch(campaignActions.setCampaignsJoined(data))
+            }else if(response.status===404){
+                alert(data.message)
+            }
+        }
+        try{
+            await getJoinedCampaigs();
            }catch(error){}
     }
 }

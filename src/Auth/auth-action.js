@@ -1,3 +1,4 @@
+import { getCampaignByCreatorIDApi, getJoinedCampaigsApi } from "../API/api-action";
 import { authActions } from "../redux-store/auth";
 import { getAuthToken } from './Auth';
 
@@ -28,6 +29,12 @@ export const loginUserApi=(email,password)=>{
             dispatch(authActions.setAuthError(authError));
             dispatch(authActions.setUser(data.result));
             dispatch(authActions.setToken(data.token));
+            if(data.result.role===16){
+                dispatch(getJoinedCampaigsApi());
+            }
+            if(data.result.role===8){
+                dispatch(getCampaignByCreatorIDApi());
+            }
         }
         try{
             await loginUser(email,password);
@@ -62,6 +69,12 @@ export const signupUserApi=(newUser)=>{
             dispatch(authActions.setAuthError(authError));
             dispatch(authActions.setUser(data.result));
             dispatch(authActions.setToken(data.token));
+            if(data.result.role===16){
+                dispatch(getJoinedCampaigsApi());
+            }
+            if(data.result.role===8){
+                dispatch(getCampaignByCreatorIDApi());
+            }
         }
         try{
             await SignUpUser(newUser);
@@ -84,6 +97,14 @@ export const getUserInfoApi=()=>{
             if(response.status===200){
                 console.log("Already logged in");
             dispatch(authActions.setUser(data.user));
+            if(data.user.role===16){
+                dispatch(getJoinedCampaigsApi());
+            }
+            if(data.user.role===8){
+                dispatch(getCampaignByCreatorIDApi());
+            }
+            }else{
+            dispatch(authActions.setUser(null));
             }
         }
         try{

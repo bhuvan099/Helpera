@@ -7,7 +7,7 @@ const Sidea = (props)=>{
 return <>
 <div className={classes.profile}>
             <p className={classes.circ}> {Charx} </p>
-            <p className={classes.name}>{props.data.username}</p>
+            <p className={classes.name}>{props.data.name.toUpperCase()}</p>
             <p>{props.data.email}</p>
 </div>
     </>

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const campaignSlice=createSlice({
     name:'campaign',
-    initialState:{allCampaings:[],filteredCampaigns:[],currentCampaign:null,campaignsCreated:null},
+    initialState:{allCampaings:[],filteredCampaigns:[],currentCampaign:null,campaignsCreated:null,campaignsJoined:null},
     reducers:{
         setAllCampaigns(state,action){
             state.allCampaings=action.payload;
@@ -15,6 +15,9 @@ const campaignSlice=createSlice({
         },
         setCampaignsCreated(state,action){
             state.campaignsCreated=action.payload;
+        },
+        setCampaignsJoined(state,action){
+            state.campaignsJoined=action.payload;
         }
     }
 })

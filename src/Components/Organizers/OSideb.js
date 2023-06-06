@@ -1,13 +1,8 @@
 import React from "react";
 import classes from "./OSideb.module.css";
-import { getCampaignByCreatorIDApi } from "../../API/api-action";
-import { useDispatch } from "react-redux";
+import { Form } from "react-router-dom";
 const OSideb = (props) => {
-  const dispatch=useDispatch();
-  const getCampaignByCreatorIDHandler=async()=>{
-       await dispatch(getCampaignByCreatorIDApi());
-       set2();
-  }
+
   function set1() {
     props.settoggle(() => ({
       t1: true,
@@ -38,7 +33,7 @@ const OSideb = (props) => {
         <div className={classes.item}>
           <button
             className={classes.but1}
-            onClick={getCampaignByCreatorIDHandler}
+            onClick={()=>set2()}
           >
             Campaigns
           </button>
@@ -60,19 +55,19 @@ const OSideb = (props) => {
         </div>
 
         <div className={classes.item}>
-          <button className={classes.but1} href="Feedback.html">
+          <button className={classes.but1} >
             Feedback
           </button>
         </div>
 
         <div className={classes.item}>
-          <button className={classes.but1} href="Logout.html">
+         <Form action='/logout' method="post"><button className={classes.but1}>
             Logout
-          </button>
+          </button></Form>
         </div>
 
         <div className={classes.item}>
-          <button className={classes.but1} href="Logout.html">
+          <button className={classes.but1}>
             Rating: {props.user.rating}
           </button>
         </div>

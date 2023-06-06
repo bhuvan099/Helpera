@@ -1,12 +1,13 @@
 import React from 'react';
 import Campaigns from '../Campaigns';
-import classes from './ListCamp.module.css';
+import { useSelector } from "react-redux";
+
 const ListCamp=()=>{
+    const JOINED_CAMPAIGNS=useSelector(state=>state.campaign.campaignsJoined);
     return <>
-        <div className={classes.subcls}><Campaigns text="Campaign-1"/></div>
-        <div className={classes.subcls}><Campaigns text="Campaign-2"/></div>
-        <div className={classes.subcls}><Campaigns text="Campaign-3"/></div>
-        <div className={classes.subcls}><Campaigns text="Campaign-4"/></div>
+           {JOINED_CAMPAIGNS ? JOINED_CAMPAIGNS.map((item) => (
+            <Campaigns campaign={item} />
+          )):"FAILED TO LOAD CAMPAIGNS"}
     </>
 }
 
