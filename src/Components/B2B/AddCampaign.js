@@ -148,7 +148,7 @@ const AddCampaign = () => {
 }
   return (
       <div className={classes.main}>
-        {modal && modal.type==="ADD_CAMPAIGN" && <Modal onCloseModal={redirectToHome} title={modal.title} message={modal.message} accept={modal.accept} reject={modal.reject} />}
+        {modal && modal.type==="ADD_CAMPAIGN" && <Modal onCloseModal={redirectToHome} modal={modal} />}
         <div className={classes.c}>
           <h1>AddCampaign</h1>
           <form className={classes.form}>

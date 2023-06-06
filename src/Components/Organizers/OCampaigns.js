@@ -3,10 +3,12 @@ import classes from "./OCampaigns.module.css";
 import { getCampaignByCampaignIdApi } from "../../API/api-action";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { campaignActions } from "../../redux-store/campaign";
 
 const OCampaigns = (props) => {
   const dispatch=useDispatch();
 const showCampDetails=async()=>{
+  dispatch(campaignActions.setCurrentCampaign(props.campaign));
   await dispatch(getCampaignByCampaignIdApi(props.campaign._id));
 }
 const redirectUrl="/campaigns/"+props.campaign._id;
