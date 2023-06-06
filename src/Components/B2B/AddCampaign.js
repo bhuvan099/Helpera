@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import classes from "./AddCampaign.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from '../../Images/HELPERA_ROUND_1.png';
 import {regExName,regExEmail,regExPhone} from '../../Auth/auth-action';
 import { addCampaignApi } from "../../API/api-action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Modal from "../UI/Model";
 
 
 const AddCampaign = () => {
@@ -20,7 +21,8 @@ const AddCampaign = () => {
   const [address,setAddress]=useState("");
   const [phone,setPhone]=useState("");
   const dispatch=useDispatch();
-
+  const navigate=useNavigate();
+  const modal=useSelector(state=>state.auth.modal);
   const onEmailChange=(event)=>{
     if (errmessage==="Invalid Email") {
       setError(null);
@@ -77,6 +79,9 @@ const AddCampaign = () => {
       setError(null);
     }
     setPhone(event.target.value);
+  }
+  const redirectToHome=()=>{
+    navigate('/')
   }
   const insertCamp=async(event)=>{
     event.preventDefault();
@@ -143,6 +148,7 @@ const AddCampaign = () => {
 }
   return (
       <div className={classes.main}>
+        {modal && modal.type==="ADD_CAMPAIGN" && <Modal onCloseModal={redirectToHome} title={modal.title} message={modal.message} accept={modal.accept} reject={modal.reject} />}
         <div className={classes.c}>
           <h1>AddCampaign</h1>
           <form className={classes.form}>

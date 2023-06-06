@@ -6,9 +6,10 @@ import classes from './Home.module.css';
 import { useSelector } from "react-redux";
 
 const Home=()=>{
-    const CAMPAIGNS_ADDED=useSelector(state=>state.campaign.campaignsCreated);
-    console.log(CAMPAIGNS_ADDED);
-
+    const modalForLogout=useSelector(state=>state.auth.modal);
+   if(modalForLogout && modalForLogout.type==="LOGOUT"){
+    window.location.reload();
+   }
     return <div className={classes.main}> 
         <Banner></Banner>
         <Achieve></Achieve>

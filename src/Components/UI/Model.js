@@ -1,22 +1,18 @@
 import React from 'react';
 import classes from './Model.module.css'
 const Modal=(props)=>{
-
         return <>
         <div className={classes.modalBackGround}>
                 <div className={classes.modalContainer}>
                         <div className={classes.title}>
-                                <h1>This Going To Be Your Title Field</h1>
+                                <p>{props.title}</p>
                         </div>
-                        <hr/>
                         <div className={classes.body}>
-                                <p>This The Body Of the Modal</p>
+                                <p>{props.message}</p>
                         </div>
-                        <hr/>
                         <div className={classes.footer}>
-                                <button onClick={()=>{props.onCloseModal(false)}} className={classes.b1}>Cancel</button>
-
-                                <button className={classes.b2}>continue</button>
+                        <button className={classes.b2} type='submit'>{props.accept}</button>
+                        <button onClick={props.onCloseModal} type='reset' className={classes.b1}>{props.reject}</button>
                         </div>
                 </div>
         </div>
