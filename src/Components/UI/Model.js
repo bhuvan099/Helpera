@@ -25,7 +25,8 @@ const Modal=(props)=>{
                 return
         }
         return <>
-        <div className={classes.modalBackGround}>
+    opacity: 0.6;
+        <div className={classes.modalBackGround} style={props.modal.type==="LOGOUT"?{opacity:1}:{opacity:0.6}}>
                 <div className={classes.modalContainer}>
                         <div className={classes.title}>
                                 <p>{props.modal.title}</p>

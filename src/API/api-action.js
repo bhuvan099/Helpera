@@ -103,7 +103,7 @@ export const getCampaignByCreatorIDApi=()=>{
         const getCampaignByCreatorID=async()=>{
             const token=getAuthToken();
             const authToken="Bearer "+token;
-            const response=await fetch("http://127.0.0.1:5000/organisation/getCampaignByCreatorID",{
+            const response=await fetch(process.env.REACT_APP_HELPERA_GET_ADDED_CAMPAIGN_URL,{
                 method:'POST',
                 headers:{
                         'Content-Type':'application/json',
@@ -125,7 +125,7 @@ export const getCampaignByCreatorIDApi=()=>{
 export const getCampaignByCampaignIdApi=(Id)=>{
     return async(dispatch)=>{
         const getCampaignByCampaignId=async(Id)=>{
-            const url="http://127.0.0.1:5000/organisation/getCampaignsByCid/"+Id;
+            const url=process.env.REACT_APP_HELPERA_GET_CAMPAIGN_BY_ID_URL+Id;
             console.log(url);
             const response=await fetch(url,{
                 method:'GET',

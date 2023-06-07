@@ -54,6 +54,7 @@ export const signupUserApi=(newUser)=>{
             }) 
             let data=await response.json()
             let authError={}
+            console.log(response.status);
             if(response.status===200){
                 console.log("successfully registered")
                 localStorage.setItem("token",data.token)
@@ -86,6 +87,7 @@ export const getUserInfoApi=()=>{
         const getUserInfo=async()=>{
            const token=getAuthToken();
            const authToken='Bearer '+token;
+           console.log(authToken);
             const response=await fetch(process.env.REACT_APP_HELPERA_USERDETAILS_URL,{
                 method:'GET',
                 headers:{
