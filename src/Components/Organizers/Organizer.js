@@ -20,8 +20,8 @@ const Organizer = () => {
   //const [t2, istoggle2] = useState(false);
   console.log(toggle.t1);
 
-  return (
-    <div className={classes.main}>
+  return <>
+  {user ?<div className={classes.main}>
       <div>
         <Sidea user={user} />
       </div>
@@ -36,7 +36,10 @@ const Organizer = () => {
         {/* {toggle.t2 && <Odefault />} */}
         {/* <Sidec /> */}
       </div>
-    </div>
-  );
+    </div>:
+   <div className={classes.spin}>
+     <div className={classes.loader}></div> <p>Loading Profile Details....</p>
+     </div>}
+    </>
 };
 export default Organizer;

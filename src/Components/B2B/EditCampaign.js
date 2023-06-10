@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import classes from "./AddCampaign.module.css";
+import classes from "./EditCampaign.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import img from '../../Images/HELPERA_ROUND_1.png';
 import {regExName,regExEmail,regExPhone} from '../../Auth/auth-action';
-import { addCampaignApi } from "../../API/api-action";
+import { updateCampaignApi } from "../../API/api-action";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../UI/Model";
 
 
-const AddCampaign = () => {
-  const [email,setEmail]=useState("");
+const EditCampaign = () => {
+    const prevCampaign=useSelector(state=>state.campaign.currentCampaign)
+    console.log(prevCampaign);
+  const [email,setEmail]=useState(prevCampaign.Email);
   const [errmessage,setError]=useState("");
-  const [campHead,setCampHead]=useState("");
-  const [org,setOrg]=useState("");
-  const [VolNo, setVolNo]=useState();
-  const [name,setname]=useState("");
-  const [type,setType]=useState("");
-  const [sdate, setSdate]=useState();
-  const [edate, setEdate]=useState();
-  const [address,setAddress]=useState("");
-  const [phone,setPhone]=useState("");
+  const [status,setStatus]=useState("Update");
+  const [campHead,setCampHead]=useState(prevCampaign.CampHeadName);
+  const [org,setOrg]=useState(prevCampaign.OrgName);
+  const [VolNo, setVolNo]=useState(prevCampaign.VoluntersNeeded);
+  const [name,setname]=useState(prevCampaign.CampaignName);
+  const [type,setType]=useState(prevCampaign.CampaignType[0]);
+  const [sdate, setSdate]=useState(prevCampaign.StartDate);
+  const [edate, setEdate]=useState(prevCampaign.EndDate);
+  const [address,setAddress]=useState(prevCampaign.Address);
+  const [phone,setPhone]=useState(prevCampaign.ContactNo);
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const modal=useSelector(state=>state.auth.modal);
@@ -128,7 +130,7 @@ const AddCampaign = () => {
       setError("Invalid Campaign Head Name");
       return;
     }
-
+    setStatus("Updating...");
     const newCampaign={
       OrgName:org,
       Email:email,
@@ -140,47 +142,52 @@ const AddCampaign = () => {
       EndDate:edate,
       Address:address,
       ContactNo:phone,
-      termsNConditionsFileUrl:"",//will be updated soon
-      campaignProfileImageUrl:"" //will be updated soon
+      VolunteersJoined:prevCampaign.VolunteersJoined,
+      comment:prevCampaign.comment,
+      image_asset_id:prevCampaign.image_asset_id,
+      image_public_id:prevCampaign.image_public_id,
+      image_url:prevCampaign.image_url,
+      CreatedBYId:prevCampaign.CreatedBYId
     }
-    await dispatch(addCampaignApi(newCampaign));
-
+    const urlId=prevCampaign._id;
+    await dispatch(updateCampaignApi(newCampaign,urlId));
+    setStatus("Update")
 }
   return (
       <div className={classes.main}>
-        {modal && modal.type==="ADD_CAMPAIGN" && <Modal onCloseModal={redirectToHome} modal={modal} />}
+        {modal && modal.type==="UPDATE_CAMPAIGN" && <Modal onCloseModal={redirectToHome} modal={modal} />}
         <div className={classes.c}>
-          <h1>Add Campaign</h1>
+          <h1>Edit Campaign</h1>
           <form className={classes.form}>
           <div>
-              <input type='text' onChange={onNameChange} required placeholder="Name of the campaign"/>
+             Campaign Name: <input type='text' value={name} onChange={onNameChange} required placeholder="Name of the campaign"/>
             </div>
           <div>
-              <input type='text' onChange={onTypeChange} required placeholder="Campaign Type"/>
+              Campaign Type:<input type='text' value={type} onChange={onTypeChange} required placeholder="Campaign Type"/>
             </div>
             <div  >
-              <input type='email' onChange={onEmailChange} required placeholder="Enter Email"/>
+             Email: <input type='email' value={email} onChange={onEmailChange} required placeholder="Enter Email"/>
             </div>
             <div  >
-              <input type='text' onChange={onOrgNameChange} required placeholder="Organization Name"/>
+             Organization: <input type='text' value={org} onChange={onOrgNameChange} required placeholder="Organization Name"/>
             </div>
             <div  >
-              <input type='text' onChange={onCampHeadChange} required placeholder="Campaign Head Name"/>
+            Campaign Head:  <input type='text' value={campHead} onChange={onCampHeadChange} required placeholder="Campaign Head Name"/>
             </div>
             <div >
-              <input type='text' onChange={onPhoneChange} required placeholder="Contact Number"/> 
+             Contact: <input type='text' value={phone} onChange={onPhoneChange} required placeholder="Contact Number"/> 
             </div>
             <div >
-              <input type='number' onChange={onVolNoChange} required placeholder="Volunteers Needed"/> 
+              Volunters Needed:<input type='number' value={VolNo} onChange={onVolNoChange} required placeholder="Volunteers Needed"/> 
             </div>
             <div  >
-              <input type='text' onChange={onAddressChange} required placeholder="Enter Address"/>
+             Address: <input type='text' value={address} onChange={onAddressChange} required placeholder="Enter Address"/>
             </div>
             <div >
-              Start Date:<input type='date' onChange={ onSdateChange} style={{width:"55%"}} required/>
+              Start Date:<input type='date' value={sdate} onChange={ onSdateChange} required/>
             </div>
             <div >
-              End Date:<input type='date' onChange={ onEdateChange} style={{width:"55%"}} required/>
+              End Date:<input type='date' value={edate} onChange={ onEdateChange}  required/>
             </div>
             {/* <div>
               Description File:<input type='file' className={classes.file} style={{width:"55%"}} />
@@ -188,7 +195,7 @@ const AddCampaign = () => {
             <div>
               Campaign Profile:<input type='file' className={classes.file} style={{width:"55%"}} />
             </div> */}
-            <button type="submit" onClick={insertCamp}>Add Campaign</button>
+            <button type="submit" onClick={insertCamp}>Update</button>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
           </form>
         </div>
@@ -196,4 +203,4 @@ const AddCampaign = () => {
   );
 };
 
-export default AddCampaign;
+export default EditCampaign;

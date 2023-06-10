@@ -184,11 +184,14 @@ const SignUp = () => {
       securityQuestion:sques
     }
     await dispatch(signupUserApi(newOrg));
+    setMessage("Register");
    }
    const token=getAuthToken();
    if(token){
     setMessage("Register");
      navigate('/')
+   }else{
+    window.location.reload();
    }
 }
   return (
