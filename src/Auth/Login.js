@@ -45,10 +45,13 @@ const Login = () => {
       return;
     }
     await dispatch(loginUserApi(email,password));
+    setMessage("Login")
     const token=getAuthToken();
     if(token){
       setMessage("Login")
       navigate('/')
+    }else{
+      window.location.reload();
     }
     
 }

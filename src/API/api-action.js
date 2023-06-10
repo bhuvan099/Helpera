@@ -36,6 +36,41 @@ export const addCampaignApi=(newCampaign)=>{
            }catch(error){}
     }
 }
+export const updateCampaignApi=(updatedCampaign,urlId)=>{
+    return async(dispatch)=>{
+        const updateCampaign=async(updatedCampaign,urlId)=>{
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
+            const url=process.env.REACT_APP_HELPERA_UPDATE_CAMPAIGN_URL+urlId;
+            console.log(url);
+            const response=await fetch(url,{
+                method:'PATCH',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                },
+                body:JSON.stringify(updatedCampaign)
+                });
+            let data=await response.json()
+            if (response.status===201) {
+                const modal={
+                    type:"UPDATE_CAMPAIGN",
+                    title:"Successful!!",
+                    message:"Your campaign has been updated successfully.",
+                    accept:"Profile",
+                    reject:"Return Home"
+                }
+                dispatch(authActions.setModal(modal));
+            }else{
+                alert(data.message)
+            }
+        }
+        try{
+            await updateCampaign(updatedCampaign,urlId);
+            
+           }catch(error){}
+    }
+}
 export const findAllCampaignApi=()=>{
     return async(dispatch)=>{
         const findAllCampaigns=async()=>{

@@ -17,6 +17,7 @@ import { getUserInfoApi } from "./Auth/auth-action";
 import { findAllCampaignApi } from "./API/api-action";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import EditCampaign from "./Components/B2B/EditCampaign";
 
 const router=createBrowserRouter([
   {path:'/',
@@ -27,8 +28,8 @@ children:[
   {path:'volunteer/:username',element:<Volunteers/>,loader:checkAuthLoader},
   { path: "organization/:username", element: <Organizer />,loader:checkAuthLoader},
   {path:'addcampaign',element:<AddCampaign/>,loader:checkAuthLoader},
+  {path:'campaign/edit',element:<EditCampaign/>,loader:checkAuthLoader},
   {path:'campaigns',element:<Campaignlist/>},
-  {path:'sam',element:<Sample/>},
   {path:'campaigns/:id',element:<Campdesc/>},
 ]},
   {path:'/login',element:<Login/>},

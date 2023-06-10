@@ -21,12 +21,15 @@ const Modal=(props)=>{
                 }else if(props.modal.type==="JOINED"){
                         navigate('/')
                         dispatch(authActions.setModal(null)); 
+                 }else if(props.modal.type==="UPDATE_CAMPAIGN"){
+                        navigate(-1)
+                        dispatch(authActions.setModal(null)); 
                  }
                 return
         }
         return <>
     opacity: 0.6;
-        <div className={classes.modalBackGround} style={props.modal.type==="LOGOUT"?{opacity:1}:{opacity:0.6}}>
+        <div className={classes.modalBackGround} style={(props.modal.type==="LOGOUT"||props.modal.type==="UPDATE_CAMPAIGN")?{opacity:1}:{opacity:0.6}}>
                 <div className={classes.modalContainer}>
                         <div className={classes.title}>
                                 <p>{props.modal.title}</p>
