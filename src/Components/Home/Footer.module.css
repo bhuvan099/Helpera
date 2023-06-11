@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 /* Summary Section  */
 .p a{
     font-family: 'Comfortaa', cursive;
@@ -11,6 +12,9 @@ text-align: center;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr ;
     height: 45vh;
+}
+.SummaryItems img{
+  width: 100px;
 }
 .SummarySection::before{
     content: "";
@@ -36,5 +40,5 @@ text-align: center;
 
 .rights{
     text-align: center;
-    
+    font-family: 'Inconsolata', monospace;
 }

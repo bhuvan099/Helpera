@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from "./Footer.module.css";
-import tempLogo from '../../Images/tempLogo.png';
+import tempLogo from '../../Images/HELPERA_ROUND_1.png';
 const Footer=()=>{
-    return <section className={classes.SummarySection}>
+    return <>
+    {/* <section className={classes.SummarySection}>
     <div className={classes.SummaryItems}>
      <img src={tempLogo} alt="Logo"/>
     </div>
@@ -24,8 +25,9 @@ const Footer=()=>{
         <p className={classes.para}><a href="google.com">Refund & Cancellation Policy</a></p>
         <p className={classes.para}><a href="google.com">Terms and Conditions</a></p>
     </div>
-    <p className={classes.rights}>All rights reserved @ helpera.in</p>
-</section>
+</section> */}
+<p className={classes.rights}>All rights reserved | @helpera.in</p>
+</>
 }
 export default Footer;
 
