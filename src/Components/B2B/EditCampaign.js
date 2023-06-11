@@ -5,11 +5,11 @@ import {regExName,regExEmail,regExPhone} from '../../Auth/auth-action';
 import { updateCampaignApi } from "../../API/api-action";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../UI/Model";
+import { authActions } from "../../redux-store/auth";
 
 
 const EditCampaign = () => {
-    const prevCampaign=useSelector(state=>state.campaign.currentCampaign)
-    console.log(prevCampaign);
+  const prevCampaign=useSelector(state=>state.campaign.currentCampaign)
   const [email,setEmail]=useState(prevCampaign.Email);
   const [errmessage,setError]=useState("");
   const [status,setStatus]=useState("Update");
@@ -83,7 +83,8 @@ const EditCampaign = () => {
     setPhone(event.target.value);
   }
   const redirectToHome=()=>{
-    navigate('/')
+    navigate('/');
+    dispatch(authActions.setModal(null));
   }
   const insertCamp=async(event)=>{
     event.preventDefault();

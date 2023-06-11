@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 .items{
     display:flex;
     padding:0.5%;
@@ -8,4 +8,7 @@
 .subItems{
     margin:1%;
     padding:0.5%;
+}
+.MainDiv{
+    font-family: 'Varela Round', sans-serif;
 }

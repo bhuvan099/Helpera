@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Sidea from "./OSidea";
 import Sideb from "./OSideb";
 import Sidec from "./OSidec";
-import Odefault from "./Odefault";
 import classes from "./Organizer.module.css";
 import Org_info from "./Org_info";
 import Volenteer_info from "./Volenteer_info";
 import { useSelector } from "react-redux";
+import Announcements from "./Announcements";
 
 const Organizer = () => {
   const user = useSelector((state) => state.auth.user);
@@ -30,9 +30,10 @@ const Organizer = () => {
         <Sideb settoggle={istoggle} user={user} />
       </div>
       <div>
-        {toggle.t1 ? <Org_info user={user} /> : <Odefault />}
-        {toggle.t2 ? <Sidec camp={user.campaigns} /> : <Odefault />}
-        {toggle.t3 ? <Volenteer_info /> : <Odefault />}
+        {toggle.t1 && <Org_info user={user} /> }
+        {toggle.t2 && <Sidec camp={user.campaigns} /> }
+        {toggle.t3 && <Volenteer_info />}
+        {toggle.t4 && <Announcements />}
         {/* {toggle.t2 && <Odefault />} */}
         {/* <Sidec /> */}
       </div>

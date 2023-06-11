@@ -6,6 +6,7 @@ import {regExName,regExEmail,regExPhone} from '../../Auth/auth-action';
 import { addCampaignApi } from "../../API/api-action";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../UI/Model";
+import { authActions } from "../../redux-store/auth";
 
 
 const AddCampaign = () => {
@@ -81,7 +82,8 @@ const AddCampaign = () => {
     setPhone(event.target.value);
   }
   const redirectToHome=()=>{
-    navigate('/')
+    navigate('/');
+    dispatch(authActions.setModal(null));
   }
   const insertCamp=async(event)=>{
     event.preventDefault();

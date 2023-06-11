@@ -71,6 +71,40 @@ export const updateCampaignApi=(updatedCampaign,urlId)=>{
            }catch(error){}
     }
 }
+export const deleteCampaignApi=(urlId)=>{
+    return async(dispatch)=>{
+        const deleteCampaign=async(urlId)=>{
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
+            const url=process.env.REACT_APP_HELPERA_DELETE_CAMPAIGN_URL+urlId;
+            console.log(url);
+            const response=await fetch(url,{
+                method:'DELETE',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                }
+                });
+            let data=await response.json()
+            if (response.status===201) {
+                console.log("yes sins")
+                const modal={
+                    type:"DELETED",
+                    title:"Successful!!",
+                    message:"Your campaign has been deleted successfully.",
+                    accept:"Profile",
+                    reject:"Return Home"
+                }
+                dispatch(authActions.setModal(modal));
+            }else{
+                alert(data.message)
+            }
+        }
+        try{
+            await deleteCampaign(urlId);
+           }catch(error){}
+    }
+}
 export const findAllCampaignApi=()=>{
     return async(dispatch)=>{
         const findAllCampaigns=async()=>{
