@@ -8,6 +8,7 @@ const ListCamp=()=>{
            {JOINED_CAMPAIGNS ? JOINED_CAMPAIGNS.map((item) => (
             <Campaigns campaign={item} />
           )):"FAILED TO LOAD CAMPAIGNS"}
+          {JOINED_CAMPAIGNS.length===0 && <p>NO CAMPAIGNS ADDED BY YOU !!!</p>}
     </>
 }
 

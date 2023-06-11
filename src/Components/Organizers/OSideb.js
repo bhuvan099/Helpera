@@ -36,6 +36,11 @@ const closeModal=()=>{
       t3: true,
     }));
   }
+  function set4() {
+    props.settoggle(() => ({
+      t4: true,
+    }));
+  }
   return (
     <>
       <div className={classes.pers}>
@@ -57,27 +62,33 @@ const closeModal=()=>{
           </button>
         </div>
 
-        <div className={classes.item}>
+        {/* <div className={classes.item}>
           <button
             className={classes.but1}
             onClick={() => set3()}
           >
             Volunteers
           </button>
-        </div>
+        </div> */}
 
         <div className={classes.item}>
-          <button className={classes.but1}>
+          <button className={classes.but1}
+           onClick={() => set4()}>
             Announcements
           </button>
         </div>
-
+{/* 
         <div className={classes.item}>
           <button className={classes.but1} >
             Feedback
           </button>
-        </div>
+        </div> */}
 
+<div className={classes.item}>
+          <button className={classes.but1}>
+            Rating:<b> {props.user.rating}</b>
+          </button>
+        </div>
         <div className={classes.item}>
             <button className={classes.but1} onClick={logoutHandler}>Logout</button>
             {modal && modal.type==="LOGOUT" && <Form action='/logout' method="post">
@@ -85,11 +96,6 @@ const closeModal=()=>{
                 </Form>}
             </div>
 
-        <div className={classes.item}>
-          <button className={classes.but1}>
-            Rating: {props.user.rating}
-          </button>
-        </div>
       </div>
     </>
   );

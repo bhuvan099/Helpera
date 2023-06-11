@@ -12,6 +12,7 @@ const OSidec = (props) => {
           {CAMPAIGNS_ADDED ? CAMPAIGNS_ADDED.map((item) => (
             <Campaigns campaign={item} />
           )):"FAILED TO LOAD CAMPAIGNS"}
+          {CAMPAIGNS_ADDED.length===0 && <p>NO CAMPAIGNS ADDED BY YOU !!!</p>}
         </div>
       </div>
     </>

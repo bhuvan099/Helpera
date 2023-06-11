@@ -5,9 +5,9 @@ const Sidebb =(props)=>
 {
     return <>
         <div className={classes.two}>
-            <div class={classes.item}><b>CampaignName:</b>  {props.data.CampaignName}</div>
+            <div class={classes.item}><b>Name:</b>  {props.data.CampaignName}</div>
 
-            <div class={classes.item}><b>OrgName:</b>  {props.data.OrgName}</div>
+            <div class={classes.item}><b>Organization:</b>  {props.data.OrgName}</div>
 
             <div class={classes.item}><b>Contacts:</b>  {props.data.ContactNo},{props.data.Email}</div>
         </div>
