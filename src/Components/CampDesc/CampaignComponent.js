@@ -55,7 +55,6 @@ const closeModal=()=>{
   dispatch(authActions.setModal(modal)); 
     return;
   }
-  console.log(modal)
   return (
     <div className={classes.main}>
         {modal && <Modal onCloseModal={closeModal} modal={modal} />}
