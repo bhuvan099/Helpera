@@ -127,7 +127,31 @@ export const findAllCampaignApi=()=>{
            }catch(error){}
     }
 }
-
+export const searchCampaignApi=(searchQuery)=>{
+    return async(dispatch)=>{
+        const searchCampaigns=async(searchQuery)=>{
+            const url=process.env.REACT_APP_HELPERA_SEARCH_CAMPAIGN_URL+'?search='+searchQuery;
+            console.log(url);
+            const response=await fetch(url,{
+                method:'GET',
+                headers:{
+                        'Content-Type':'application/json',
+                }
+            });
+            let data=await response.json()
+            console.log(response.status);
+            if (response.status===201) {
+                console.log("successfully searched campaigns")
+                dispatch(campaignActions.setFilteredCampaigns(data))
+            }else{
+                console.log("Unable to find All Campaings")
+            }
+        }
+        try{
+            await searchCampaigns(searchQuery);
+           }catch(error){}
+    }
+ }
 export const joinCampaignApi=(Id)=>{
     return async(dispatch)=>{
         const joinCampaign=async(Id)=>{

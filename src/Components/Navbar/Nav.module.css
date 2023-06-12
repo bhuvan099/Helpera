@@ -30,6 +30,7 @@ width: 70px;
     color: black;
     display: flex;
     align-items: center;
+    font-family: 'Exo 2', sans-serif;
 }
 .username svg{
     margin-left: 8px;
