@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 .main{
     /* margin-top: 5vh; */
-    margin: 15vh 10vw;
+    margin: 0 10vw;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 80vh;
 } 
 
 .in{

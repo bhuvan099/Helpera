@@ -7,6 +7,7 @@ import { campaignActions } from "../../redux-store/campaign";
 import { authActions } from "../../redux-store/auth";
 import Modal from "../UI/Model";
 import { useState } from "react";
+import {AiOutlineCloudUpload} from 'react-icons/ai';
 
 const OCampaigns = (props) => {
   const dispatch=useDispatch();
@@ -52,8 +53,8 @@ const redirectUrl="/campaigns/"+props.campaign._id;
        <p className={classes.name}>{props.campaign.CampaignName}</p>
        <p className={classes.p}>Campaign Head: <span className={classes.org}>{props.campaign.CampHeadName}</span></p>
        <span className={classes.org}>{props.campaign.Email}</span>
-       {!props.campaign.image_url &&<><input type='file' onChange={fileChangeHandler} />
-       <button onClick={uploadImage} type='submit' disabled={filePath.length===0}>upload</button></>}
+       {!props.campaign.image_url &&<div className={classes.upload}><input type='file' className={classes.file} onChange={fileChangeHandler} />
+       <button onClick={uploadImage} type='submit' disabled={filePath.length===0}><AiOutlineCloudUpload size='1.5rem' />upload Image</button></div>}
        </div>
        <div>
        <Link className={classes.det} to={redirectUrl} onClick={showCampDetails}>Details</Link>

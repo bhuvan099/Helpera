@@ -12,6 +12,7 @@ import { authActions } from "../../redux-store/auth";
 const AddCampaign = () => {
   const [email,setEmail]=useState("");
   const [errmessage,setError]=useState("");
+  const [but,setBut]=useState("Add Campaign");
   const [campHead,setCampHead]=useState("");
   const [org,setOrg]=useState("");
   const [VolNo, setVolNo]=useState();
@@ -130,7 +131,7 @@ const AddCampaign = () => {
       setError("Invalid Campaign Head Name");
       return;
     }
-
+    setBut("Processing Please Wait....")
     const newCampaign={
       OrgName:org,
       Email:email,
@@ -146,7 +147,7 @@ const AddCampaign = () => {
       campaignProfileImageUrl:"" //will be updated soon
     }
     await dispatch(addCampaignApi(newCampaign));
-
+    setBut("Add Campaign");
 }
   return (
       <div className={classes.main}>
@@ -190,7 +191,7 @@ const AddCampaign = () => {
             <div>
               Campaign Profile:<input type='file' className={classes.file} style={{width:"55%"}} />
             </div> */}
-            <button type="submit" onClick={insertCamp}>Add Campaign</button>
+            <button type="submit" onClick={insertCamp} disabled={but!=="Add Campaign"}>{but}</button>
           {errmessage && <p className={classes.err}>{errmessage}</p>}
           </form>
         </div>
