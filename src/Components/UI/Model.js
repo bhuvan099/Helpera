@@ -4,12 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../../redux-store/auth';
 import { deleteCampaignApi, joinCampaignApi } from '../../API/api-action';
+import { LogoutAction, clearAuthStateHandler } from '../../Auth/Auth';
 const Modal=(props)=>{
         const navigate=useNavigate();
         const dispatch=useDispatch();
         const acceptHandler=async()=>{
                 if(props.modal.type==="ADD_CAMPAIGN"){
                     window.location.reload();
+                }else if(props.modal.type==="LOGOUT"){
+                        dispatch(clearAuthStateHandler());
+                        LogoutAction();
+                        navigate('/')
                 }else if(props.modal.type==="LOGIN"){
                     navigate('/login');
                     dispatch(authActions.setModal(null)); 
