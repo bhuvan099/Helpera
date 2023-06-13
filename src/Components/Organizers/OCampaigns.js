@@ -1,14 +1,16 @@
 import React from "react";
 import classes from "./OCampaigns.module.css";
-import { getCampaignByCampaignIdApi } from "../../API/api-action";
+import { getCampaignByCampaignIdApi, uploadImageApi } from "../../API/api-action";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { campaignActions } from "../../redux-store/campaign";
 import { authActions } from "../../redux-store/auth";
 import Modal from "../UI/Model";
+import { useState } from "react";
 
 const OCampaigns = (props) => {
   const dispatch=useDispatch();
+  const [filePath,setFilePath]=useState("");
   const modal=useSelector(state=>state.auth.modal);
 const showCampDetails=async()=>{
   dispatch(campaignActions.setCurrentCampaign(props.campaign));
@@ -28,6 +30,17 @@ const deleteCampaign=()=>{
 }
 dispatch(authActions.setModal(modal));
 }
+const fileChangeHandler=(event)=>{
+setFilePath(event.target.files[0])
+console.log(event.target.files[0])
+}
+const uploadImage=async()=>{
+  const data = new FormData()
+  data.append("file", filePath)
+data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+data.append("cloud_name",process.env.REACT_APP_CLOUDINARY_CLOUD_NAME)
+ await dispatch(uploadImageApi(data,props.campaign._id));
+}
 const closeModal=()=>{
   dispatch(authActions.setModal(null));
 }
@@ -39,6 +52,8 @@ const redirectUrl="/campaigns/"+props.campaign._id;
        <p className={classes.name}>{props.campaign.CampaignName}</p>
        <p className={classes.p}>Campaign Head: <span className={classes.org}>{props.campaign.CampHeadName}</span></p>
        <span className={classes.org}>{props.campaign.Email}</span>
+       {!props.campaign.image_url &&<><input type='file' onChange={fileChangeHandler} />
+       <button onClick={uploadImage} type='submit' disabled={filePath.length===0}>upload</button></>}
        </div>
        <div>
        <Link className={classes.det} to={redirectUrl} onClick={showCampDetails}>Details</Link>

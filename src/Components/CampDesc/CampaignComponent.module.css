@@ -15,8 +15,11 @@
 .sp{
     width: 5%;
 }
-img{
+.main img{
     border-radius: 100%;
+    width: 20vw;
+    height: 30vh;
+    border: 1px solid black;
 }
 .det{
     cursor: pointer;

@@ -263,3 +263,38 @@ export const getJoinedCampaigsApi=()=>{
            }catch(error){}
     }
 }
+export const uploadImageApi=(fileInfo,campaignId)=>{
+    return async(dispatch)=>{
+        const uploadImage=async(fileInfo,campaignId)=>{
+            const token=getAuthToken();
+            const authToken="Bearer "+token;
+            const responseUrl=await fetch(process.env.REACT_APP_CLOUDINARY_URL,{
+                method:'POST',
+                body:fileInfo
+                    });
+            let data=await responseUrl.json();
+             console.log(data);
+            const newBody={
+                asset_id:data.asset_id,
+                public_id:data.public_id,
+                url:data.url,
+                campaignId:campaignId
+            }
+            const response=await fetch(process.env.REACT_APP_HELPERA_UPLOAD_IMAGE_URL,{
+                method:'POST',
+                headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':authToken,
+                },
+                body:JSON.stringify(newBody)
+                    });
+           const res=await response.json();
+           if(res.status===201){
+            console.log("successfully uploaded image");
+           }
+        }
+        try{
+            await uploadImage(fileInfo,campaignId);
+           }catch(error){}
+    }
+}
