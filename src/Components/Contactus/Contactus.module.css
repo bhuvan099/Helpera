@@ -9,15 +9,18 @@
     position: relative;
     width: 100% !important;
     height: 280px;
+    margin-top: 10px;
   }
 
   .contacth {
     position: absolute; 
     color: #fff;
     top: 50px;
-    left: 300px;
+    left: 200px;
     font-weight: 700;
     font-size: 45px;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 5px;
   }
 
   .contactp {
@@ -25,9 +28,17 @@
     color: #fff;
     width: 540px;
     top: 120px;
-    left: 300px;
+    left: 200px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
   }
-
+.text{
+    font-family: 'Exo 2', sans-serif;
+}
+.text a{
+  text-decoration: none;
+  color: black;
+}
   .bgside {
     width: auto;
     height: 60vh;
@@ -167,7 +178,7 @@
 
   .contact2 {
     position: absolute;
-    top: 190px;
+    top: 250px;
   }
 
   .tt1{

@@ -25,7 +25,7 @@ const Contactus = () => {
                     <i className="fa-brands fa-google"></i>
                   </div>
                   <div className={classes.text}>
-                    <p>@helpera_admin@gmail.com</p>
+                    <a href="gmail.com" type='email' >@helpera_admin@gmail.com</a>
                   </div>
                 </div>
                 <div className={classes.box}>
@@ -33,7 +33,23 @@ const Contactus = () => {
                     <i className="fa-solid fa-phone"></i>
                   </div>
                   <div className={classes.text}>
-                    <p>@08933 552288</p>
+                    <p>08933 552288</p>
+                  </div>
+                </div>
+                <div className={classes.box}>
+                  <div className={classes.icon}>
+                    <i className="fa-brands fa-facebook"></i>
+                  </div>
+                  <div className={classes.text}>
+                    <a href="facebook.com" target="_blank">@ helpera_facebook_admin</a>
+                  </div>
+                </div>
+                <div className={classes.box}>
+                  <div className={classes.icon}>
+                    <i className="fa-brands fa-twitter"></i>
+                  </div>
+                  <div className={classes.text}>
+                  <a href="twitter.com" target="_blank">@ helpera_twitter_admin</a>
                   </div>
                 </div>
                 <div className={classes.box}>
@@ -42,23 +58,6 @@ const Contactus = () => {
                   </div>
                   <div className={classes.text}>
                     <p>@MG Road, Near KV hospital, Jaipur</p>
-                  </div>
-                </div>
-                <div className={classes.box}>
-                  <div className={classes.icon}>
-                    <i className="fa-brands fa-facebook"></i>
-                  </div>
-                  <div className={classes.text}>
-                    <p>@helpera_admin</p>
-                  </div>
-                </div>
-
-                <div className={classes.box}>
-                  <div className={classes.icon}>
-                    <i className="fa-brands fa-twitter"></i>
-                  </div>
-                  <div className={classes.text}>
-                    <p>@helpera_twitter</p>
                   </div>
                 </div>
               </div>

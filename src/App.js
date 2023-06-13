@@ -6,6 +6,7 @@ import Organizer from "./Components/Organizers/Organizer";
 import AddCampaign from "./Components/B2B/AddCampaign";
 import Campaignlist from "./Components/CampDesc/Campaignlist";
 import Campdesc from "./Components/CampDesc/Campdesc";
+import Contactus from "./Components/Contactus/Contactus";
 import Sample from "./Components/UI/Sample";
 import Root from "./Pages/Root";
 import "./App.css";
@@ -30,6 +31,7 @@ children:[
   {path:'addcampaign',element:<AddCampaign/>,loader:checkAuthLoader},
   {path:'campaign/edit',element:<EditCampaign/>,loader:checkAuthLoader},
   {path:'campaigns',element:<Campaignlist/>},
+  {path:'contactus',element:<Contactus/>},
   {path:'campaigns/:id',element:<Campdesc/>},
 ]},
   {path:'/login',element:<Login/>},

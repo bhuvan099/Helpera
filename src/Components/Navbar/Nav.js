@@ -26,7 +26,7 @@ if(user.role===8){
       <div className={classes.action}>
       <Link to='/' className={classes.abt}>Home</Link>
       <Link to='/campaigns' className={classes.abt}>Campaigns</Link>
-      <Link href='google.com' className={classes.abt}>Contact Us</Link>
+      <Link to='/contactus' className={classes.abt}>Contact Us</Link>
       <Link href='google.com' className={classes.abt}>Help?</Link>
       </div>
      {!user ? <Link to='/login' className={classes.login}>Login/Signup</Link> :<Link to={profileUrl} className={classes.username}><FaUserCircle size='1.8rem'/>{user.username}</Link>}
