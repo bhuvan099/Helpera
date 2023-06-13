@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .contact {
+    background-color: #2a0f46;
+    position: relative;
+    width: 100% !important;
+    height: 280px;
+  }
+
+  .contacth {
+    position: absolute; 
+    color: #fff;
+    top: 50px;
+    left: 300px;
+    font-weight: 700;
+    font-size: 45px;
+  }
+
+  .contactp {
+    position: absolute;
+    color: #fff;
+    width: 540px;
+    top: 120px;
+    left: 300px;
+  }
+
+  .bgside {
+    width: auto;
+    height: 60vh;
+  }
+
+  @media (max-width: 350px) {
+    .contacth{
+      top: 20px;
+      left: 50px;
+      font-size: 40px;
+    }
+
+    .contactp {
+      width: 220px;
+      top: 80px;
+      left: 50px;
+    }
+
+    .bg-ide {
+      width: 300px;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 350px) and (max-width: 500px) {
+    .contacth {
+      top: 30px;
+      left: 60px;
+      font-size: 40px;
+    }
+
+    .contactp {
+      width: 270px;
+      top: 100px;
+      left: 60px;
+    }
+  }
+
+  @media (min-width: 500px) and (max-width: 650px) {
+    .contacth {
+      top: 30px;
+      left: 80px;
+      font-size: 42px;
+    }
+
+    .contactp {
+      width: 370px;
+      top: 100px;
+      left: 80px;
+    }
+  }
+
+  @media (min-width: 650px) and (max-width: 768px) {
+    .contacth {
+      top: 45px;
+      left: 100px;
+      font-size: 45px;
+    }
+
+    .contactp {
+      width: 400px;
+      top: 110px;
+      left: 100px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 800px) {
+    .contacth {
+      top: 45px;
+      left: 100px;
+      font-size: 45px;
+    }
+
+    .contactp {
+      width: 400px;
+      top: 110px;
+      left: 100px;
+    }
+
+    .bgside {
+      width: 250px;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 800px) and (max-width: 1000px) {
+    .contacth {
+      top: 60px;
+      left: 150px;
+      font-size: 45px;
+    }
+
+    .contactp {
+      width: 420px;
+      top: 135px;
+      left: 150px;
+    }
+
+    .bgside {
+      width: 250px;
+      height: auto;
+    }
+  }
+
+  input.form-control,
+  select#inputGroupSelect03 {
+    height: 46px;
+    background: #fff;
+  }
+
+  textarea.form-control {
+    background: #fff;
+  }
+
+  #label1 {
+    color: black;
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .formdesign {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 2rem rgb(0 0 0 / 10%);
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    width :45vw;
+    height :60vh;
+  }
+
+  .policy {
+    color: #1264a3;
+    cursor: pointer;
+    word-break: break-word;
+  }
+
+  .contact2 {
+    position: absolute;
+    top: 190px;
+  }
+
+  .tt1{
+    display: flex;
+  }
+  .icon {
+    font-size: 2rem;
+    padding: 0 20px;
+    /* margin-left: 20px; */
+    /* color: blue; */
+  }
+  .box {
+    display: flex;
+  }
+  .text {
+    padding: 10px;
+  }
+  .tt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+.sp1{
+  width :10vw;
+}
+.sp{
+  width: 15vw;
+}
