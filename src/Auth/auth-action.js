@@ -87,7 +87,6 @@ export const getUserInfoApi=()=>{
         const getUserInfo=async()=>{
            const token=getAuthToken();
            const authToken='Bearer '+token;
-           console.log(authToken);
             const response=await fetch(process.env.REACT_APP_HELPERA_USERDETAILS_URL,{
                 method:'GET',
                 headers:{
@@ -98,7 +97,7 @@ export const getUserInfoApi=()=>{
             let data=await response.json()
             if(response.status===200){
                 console.log("Already logged in");
-            dispatch(authActions.setUser(data.user));
+            dispatch(authActions.setUser(data.newResult));
             if(data.user.role===16){
                 dispatch(getJoinedCampaigsApi());
             }
