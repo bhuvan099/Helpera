@@ -27,7 +27,7 @@ export const loginUserApi=(email,password)=>{
                 alert('something went wrong');
             }
             dispatch(authActions.setAuthError(authError));
-            dispatch(authActions.setUser(data.result));
+            dispatch(authActions.setUser(data.newResult));
             dispatch(authActions.setToken(data.token));
             if(data.result.role===16){
                 dispatch(getJoinedCampaigsApi());
@@ -68,7 +68,7 @@ export const signupUserApi=(newUser)=>{
                 alert('something went wrong')
             }
             dispatch(authActions.setAuthError(authError));
-            dispatch(authActions.setUser(data.result));
+            dispatch(authActions.setUser(data.newResult));
             dispatch(authActions.setToken(data.token));
             if(data.result.role===16){
                 dispatch(getJoinedCampaigsApi());
