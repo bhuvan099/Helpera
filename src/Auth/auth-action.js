@@ -29,10 +29,10 @@ export const loginUserApi=(email,password)=>{
             dispatch(authActions.setAuthError(authError));
             dispatch(authActions.setUser(data.newResult));
             dispatch(authActions.setToken(data.token));
-            if(data.result.role===16){
+            if(data.newResult.role===16){
                 dispatch(getJoinedCampaigsApi());
             }
-            if(data.result.role===8){
+            if(data.newResult.role===8){
                 dispatch(getCampaignByCreatorIDApi());
             }
         }
@@ -70,10 +70,10 @@ export const signupUserApi=(newUser)=>{
             dispatch(authActions.setAuthError(authError));
             dispatch(authActions.setUser(data.newResult));
             dispatch(authActions.setToken(data.token));
-            if(data.result.role===16){
+            if(data.newResult.role===16){
                 dispatch(getJoinedCampaigsApi());
             }
-            if(data.result.role===8){
+            if(data.newResult.role===8){
                 dispatch(getCampaignByCreatorIDApi());
             }
         }
@@ -98,10 +98,10 @@ export const getUserInfoApi=()=>{
             if(response.status===200){
                 console.log("Already logged in");
             dispatch(authActions.setUser(data.newResult));
-            if(data.user.role===16){
+            if(data.newResult.role===16){
                 dispatch(getJoinedCampaigsApi());
             }
-            if(data.user.role===8){
+            if(data.newResult.role===8){
                 dispatch(getCampaignByCreatorIDApi());
             }
             }else{
@@ -138,5 +138,5 @@ export const resetPasswordApi=(newPassword)=>{
 export const regExEmail = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/;
 export const regExName=/^[A-Za-z\s]{3,25}$/;
 export const regExUsername=/^[a-z]{1}[a-z0-9_]{4,20}$/;
-export const regExPhone=/^[5-9]{1}[0-9]{9}$/;
+export const regExPhone=/^[1-9]{1}[0-9]{9}$/;
 export const regExPassword=/^[a-zA-Z0-9.!@#$%&*-/]{6,20}$/;
