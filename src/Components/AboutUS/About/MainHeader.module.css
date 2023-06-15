@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+.MainDivHea{
+    position: absolute;
+    top: 15vh;
+    width: 100vw;
+    display: flex;
+    justify-content: left;
+    padding: 0 2vw;
+    z-index: 10;
+}
+
+.itemHea{
+    font-size:1.2em;
+    font-weight:bold;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 10px;
+}
+
+.un{
+    border-bottom:3px solid black;
+}

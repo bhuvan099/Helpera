@@ -1,0 +1,59 @@
+
+.MainDivAb{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Ubuntu', sans-serif;
+  
+}
+/* img{
+    margin-top:8%;
+    margin-left:5%;
+    z-index:-1;
+    width:40%;
+    height:600px;
+    background-color: white;
+    border-radius: 2em;
+    box-shadow:rgba(0,0,0,0.06) 0.1875em 0.1875em 0.625em 0.375em;
+} */
+
+.itemAb p{
+    margin-top:25%;
+    margin-left:-15%;
+    font-weight: 520;
+    font-size: 5em;
+}
+
+.subDivAb{
+    padding:2%;
+    width:40%;
+    margin-top: -30%;
+    margin-left: 55%; 
+    margin-bottom: 1%;
+    line-height: 2rem;
+    font-weight: 500;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.MaindivMis .MissionAb{
+    margin-top:5%;
+    width:40%;
+    padding: 1%;
+    margin-left: 9%;
+    line-height: 1.5em;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.titl{
+    font-size: 3em;
+    margin-bottom: 3vh;
+    font-family: 'Tilt Prism', cursive;
+}
+.MaindivMis{
+    display: flex;
+    flex-direction: row;
+    background:rgb(26, 26, 26);
+    color:white;
+    padding-bottom: 5vh;
+}
