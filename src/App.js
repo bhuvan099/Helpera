@@ -8,6 +8,7 @@ import Campaignlist from "./Components/CampDesc/Campaignlist";
 import Campdesc from "./Components/CampDesc/Campdesc";
 import Contactus from "./Components/Contactus/Contactus";
 import Sample from "./Components/UI/Sample";
+import MainHeader from "./Components/AboutUS/About/MainHeader";
 import Root from "./Pages/Root";
 import "./App.css";
 import { LogoutAction, checkAuthLoader } from "./Auth/Auth";
@@ -32,6 +33,7 @@ children:[
   {path:'campaign/edit',element:<EditCampaign/>,loader:checkAuthLoader},
   {path:'campaigns',element:<Campaignlist/>},
   {path:'contactus',element:<Contactus/>},
+  {path:'aboutus',element:<MainHeader />},
   {path:'campaigns/:id',element:<Campdesc/>},
 ]},
   {path:'/login',element:<Login/>},

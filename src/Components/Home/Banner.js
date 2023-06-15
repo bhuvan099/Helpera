@@ -8,7 +8,7 @@ const Banner=()=>
             <p>Connecting Volunteers</p>
             <p>to Organizations</p>
             <span>Volunteers don't just do the work, they make it work. Volunteers make each day brighter. Volunteers make the world go round.</span>
-            <button>Learn More..</button>
+            <Link to='/aboutus' className={classes.but}>Learn More....</Link>
         </div>
     </>
 }
