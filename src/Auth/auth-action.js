@@ -17,6 +17,7 @@ export const loginUserApi=(email,password)=>{
             if(response.status===200){
                 console.log("Logged in successfully");
                 localStorage.setItem("token",data.token);
+            dispatch(authActions.setUser(data.newResult));
             }
             else{
                 authError={
@@ -27,8 +28,6 @@ export const loginUserApi=(email,password)=>{
                 alert('something went wrong');
             }
             dispatch(authActions.setAuthError(authError));
-            dispatch(authActions.setUser(data.newResult));
-            dispatch(authActions.setToken(data.token));
             if(data.newResult.role===16){
                 dispatch(getJoinedCampaigsApi());
             }
@@ -58,6 +57,7 @@ export const signupUserApi=(newUser)=>{
             if(response.status===200){
                 console.log("successfully registered")
                 localStorage.setItem("token",data.token)
+            dispatch(authActions.setUser(data.newResult));
             }
             else{
                 authError={
@@ -68,8 +68,6 @@ export const signupUserApi=(newUser)=>{
                 alert('something went wrong')
             }
             dispatch(authActions.setAuthError(authError));
-            dispatch(authActions.setUser(data.newResult));
-            dispatch(authActions.setToken(data.token));
             if(data.newResult.role===16){
                 dispatch(getJoinedCampaigsApi());
             }

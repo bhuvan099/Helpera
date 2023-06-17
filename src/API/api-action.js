@@ -205,7 +205,6 @@ export const getCampaignByCreatorIDApi=()=>{
                     });
             let data=await response.json()
             if (response.status===200) {
-                console.log(data);
                 dispatch(campaignActions.setCampaignsCreated(data))
             }else if(response.status===404){
                 alert(data.message)

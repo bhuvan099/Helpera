@@ -9,7 +9,7 @@ const Campaignlist=()=>{
     const dispatch=useDispatch();
     const ALL_CAMPAINGS=useSelector(state=>state.campaign.allCampaings);
     const FILTERED_CAMPAINGS=useSelector(state=>state.campaign.filteredCampaigns);
-    const typeRef=useRef();
+    // const typeRef=useRef();
     const queryRef=useRef();
     const changeListToFilter=()=>{
         setIsFiltered(true);
@@ -20,6 +20,12 @@ const Campaignlist=()=>{
     const searchFunc=async(e)=>{
          e.preventDefault();
         changeListToFilter();
+         console.log(queryRef.current.value)
+         console.log(queryRef.current.value.length)
+         if(queryRef.current.value.length===0){
+            changeListToAll();
+            return;
+         }
        await dispatch(searchCampaignApi(queryRef.current.value));
     }
     const clist=ALL_CAMPAINGS.map(item=><CampaignComponent key={item._id} campaign={item}  />);
@@ -51,7 +57,8 @@ const Campaignlist=()=>{
     </div> }
     {isFiltered && <div>
         {FILTERED_CAMPAINGS.length===0?<div className={classes.spin}>
-    <div className={classes.loader}></div> <p>Loading Search Results...</p>
+            No Campaigns Found ....<br/>
+            Please Enter valid search query...
     </div>:<div>{clistFilt}</div>}
     </div> }
     </div>

@@ -59,7 +59,6 @@ const closeModal=()=>{
     <div className={classes.main}>
         {modal && <Modal onCloseModal={closeModal} modal={modal} />}
       <img src={props.campaign.image_url?props.campaign.image_url:prof} alt="loading"></img>
-      <div className={classes.sp}></div>
       <div className={classes.inf}>
         <p>
           <b>Campaign: </b>
@@ -80,7 +79,8 @@ const closeModal=()=>{
       </div>
       <div className={classes.action}>
           <Link className={classes.det} to={props.campaign._id} onClick={showCampDetails}>Details</Link>
-          <button className={classes.join} onClick={joinCampaignHandler}>Join</button>
+         {user && user.role===16 &&<button className={classes.join} onClick={joinCampaignHandler}>Join</button>}
+         {!user &&<button className={classes.join} onClick={joinCampaignHandler}>Join</button>}
       </div>
       <div className={classes.ac2}></div>
     </div>

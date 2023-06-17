@@ -3,22 +3,27 @@
     /* background-color: #A2A8E4; */
     display: flex;
     margin: 2vh 0;
-    justify-content: space-evenly;
-  font-family: 'Bree Serif', serif
+    justify-content: space-between;
+  font-family: 'Bree Serif', serif;
 }
 .inf{
-    width: 50%;
+    width: 56%;
     background-color: #A2A8E4;
     padding: 2vh 4vw;
     border-radius: 100px 0px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
 }
-.sp{
-    width: 5%;
+.inf p{
+    margin: 5px 0;
 }
 .main img{
     border-radius: 100%;
     width: 20vw;
     height: 30vh;
+    margin-right: 10px;
     border: 1px solid black;
 }
 .det{
