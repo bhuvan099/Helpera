@@ -289,8 +289,16 @@ export const uploadImageApi=(fileInfo,campaignId)=>{
                 body:JSON.stringify(newBody)
                     });
            const res=await response.json();
-           if(res.status===201){
+           if(response.status===201){
             console.log("successfully uploaded image");
+            const modal={
+                type:"JOINED",
+                title:"Successful...!!",
+                message:"Successfully added image for the camaign",
+                accept:"Return to Home",
+                reject:"OK,fine"
+            }
+            dispatch(authActions.setModal(modal)); 
            }
         }
         try{
